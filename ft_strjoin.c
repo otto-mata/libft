@@ -12,6 +12,18 @@
 
 #include <libft.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char *ft_strjoin(char const *s1, char const *s2)
 {
+	size_t const s1sz = ft_strlen(s1);
+	size_t const s2sz = ft_strlen(s2);
+	size_t const sz = s1sz + s2sz + 1;
+	char *s;
+
+	s = ft_calloc(sz, sizeof(char));
+	if (!s)
+		return (0);
+	ft_memcpy(s, s1, s1sz);
+	ft_memcpy(s + s1sz, s2, s2sz);
+	s[sz] = 0;
+	return (s);
 }

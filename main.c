@@ -25,7 +25,6 @@
 #define FNV_OFFSET 14695981039346656037UL
 #define FNV_PRIME 1099511628211UL
 
-
 uint64_t hash(void *area, size_t n)
 {
 	uint64_t hash;
@@ -67,10 +66,10 @@ void void_tolower_wrapper(uint32_t i, char *c)
 	*c = ft_tolower(*c);
 }
 
-void	seeding_magic(void)
+void seeding_magic(void)
 {
-	void 		*urandom = calloc(128, sizeof(uint8_t));
-	int const	fd = open("/dev/urandom", O_RDONLY);
+	void *urandom = calloc(128, sizeof(uint8_t));
+	int const fd = open("/dev/urandom", O_RDONLY);
 
 	if (!fd)
 		return (srand(time(0)));
@@ -78,14 +77,13 @@ void	seeding_magic(void)
 		return (srand(time(0)));
 	srand(hash(urandom, 128));
 	free(urandom);
-
 }
 
-char	*random_string(size_t sz)
+char *random_string(size_t sz)
 {
-	char	*s;
-	size_t	i;
-	char	c;
+	char *s;
+	size_t i;
+	char c;
 
 	s = calloc(sz + 1, sizeof(char));
 	if (!s)
@@ -106,7 +104,7 @@ char	*random_string(size_t sz)
 int main(void)
 {
 	seeding_magic();
-	/* printf("TEST WILL COMMENCE. BE PREPARED, OR DIE.\n");
+	printf("TEST WILL COMMENCE. BE PREPARED, OR DIE.\n");
 	printf("Part 1 - Libc Functions\n");
 	printf("ft_isalpha()");
 	assert(!!ft_isalnum(45) == !!isalnum(45));
@@ -526,7 +524,7 @@ int main(void)
 	assert(strcmp(s, "HELLO WORLD") == 0);
 	ft_striteri(s, &void_tolower_wrapper);
 	assert(strcmp(s, "hello world") == 0);
-	printf(" - OK\n"); */
+	printf(" - OK\n");
 	printf("ft_putchar_fd()");
 	char *s = malloc(64);
 	char *path = malloc(22);
@@ -538,7 +536,7 @@ int main(void)
 	int fd = open(path, O_RDWR | O_CREAT, 0666);
 	assert(fd > 0);
 	ft_putchar_fd('c', fd);
-	printf("%zd\n",read(fd, s, 1));
+	printf("%zd\n", read(fd, s, 1));
 	printf("%c\n", s[0]);
 	assert(s[0] == 'c');
 }

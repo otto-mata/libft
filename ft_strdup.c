@@ -12,6 +12,13 @@
 
 #include <libft.h>
 
-char	*ft_strdup(char const *s)
+char *ft_strdup(char const *s)
 {
+	size_t const len = ft_strlen(s) + 1;
+	void *new;
+
+	new = ft_calloc(len, sizeof(char));
+	if (!new)
+		return (0);
+	return ((char *)ft_memcpy(new, s, len));
 }

@@ -123,20 +123,20 @@ size_t ft_strlcpy(char *d, char const *s, size_t l);
 size_t ft_strlcat(char *d, char const *s, size_t l);
 
 /**
- * @brief Converts a string to uppercase.
+ * @brief Converts a character to uppercase.
  *
- * @param s The string to convert.
- * @return Pointer to the modified string.
+ * @param c The character to convert.
+ * @return The modified character.
  */
-char *ft_toupper(char *s);
+char ft_toupper(char c);
 
 /**
- * @brief Converts a string to lowercase.
+ * @brief Converts a character to lowercase.
  *
- * @param s The string to convert.
- * @return Pointer to the modified string.
+ * @param s The character to convert.
+ * @return The modified character.
  */
-char *ft_tolower(char *s);
+char ft_tolower(char c);
 
 /**
  * @brief Finds the first occurrence of a character in a string.
@@ -145,7 +145,7 @@ char *ft_tolower(char *s);
  * @param c The character to find.
  * @return Pointer to the first occurrence of the character, or NULL if not found.
  */
-char *ft_strchr(char *s, char c);
+char *ft_strchr(char const *s, char c);
 
 /**
  * @brief Finds the last occurrence of a character in a string.
@@ -154,7 +154,7 @@ char *ft_strchr(char *s, char c);
  * @param c The character to find.
  * @return Pointer to the last occurrence of the character, or NULL if not found.
  */
-char *ft_strrchr(char *s, char c);
+char *ft_strrchr(char const *s, char c);
 
 /**
  * @brief Compares two strings up to a specified number of characters.

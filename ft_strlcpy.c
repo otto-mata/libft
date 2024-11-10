@@ -12,6 +12,16 @@
 
 #include <libft.h>
 
-size_t	ft_strlcpy(char *d, char const *s, size_t l)
+size_t ft_strlcpy(char *d, char const *s, size_t l)
 {
+	size_t const srclen = strlen(s);
+
+	if (srclen < l)
+		ft_memcpy(d, s, srclen + 1);
+	else if (l != 0)
+	{
+		ft_memcpy(d, s, l - 1);
+		d[l - 1] = '\0';
+	}
+	return (srclen);
 }
