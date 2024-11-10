@@ -12,6 +12,21 @@
 
 #include <libft.h>
 
-void	*ft_memmove(void *d, void const *s, size_t sz)
+void *ft_memmove(void *d, void const *s, size_t sz)
 {
+	char const *src = s;
+	char *dest;
+	char *lasts;
+	char *lastd;
+
+	if (dest < src)
+		ft_memcpy(d, s, sz);
+	else
+	{
+		*lasts = src + (sz - 1);
+		*lastd = dest + (sz - 1);
+		while (sz--)
+			*lastd-- = *lasts--;
+	}
+	return (d);
 }

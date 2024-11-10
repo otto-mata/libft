@@ -11,7 +11,73 @@
 /* ************************************************************************** */
 
 #include <libft.h>
-
-char	*ft_itoa(int n)
+static void ft_strrev(char *str)
 {
+	int i;
+	int j;
+	char a;
+	size_t const len = ft_strlen((const char *)str);
+
+	i = 0;
+	j = len - 1;
+	while (i < j)
+	{
+		a = str[i];
+		str[i] = str[j];
+		str[j] = a;
+		i++;
+		j--;
+	}
+}
+
+static unsigned int ft_abs(int n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
+}
+
+static int ft_intlen(int n)
+{
+	int sz;
+
+	if (n == INT_MIN)
+		return (10);
+	if (n == 0)
+		return (1);
+	sz = 0;
+	n = ft_abs(n);
+	while (n > 0)
+	{
+		sz++;
+		n /= 10;
+	}
+	return (sz);
+}
+
+char *ft_itoa(int n)
+{
+	int i;
+	int digit;
+	int const sign = (n < 0);
+	int const nlen = ft_intlen(n);
+	char *str;
+
+	if (n == 0)
+		return (ft_strdup("0"));
+	str = ft_calloc(nlen + sign + 1, sizeof(char));
+	if (!str)
+		return (0);
+	i = 0;
+	while (i < nlen - 1 + sign)
+	{
+		digit = n % 10;
+		str[i++] = '0' + ft_abs(digit);
+		n /= 10;
+	}
+	if (sign)
+		str[i] = '-';
+	str[i + sign] = '\0';
+	ft_strrev(str);
+	return (str);
 }

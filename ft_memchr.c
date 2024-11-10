@@ -12,6 +12,15 @@
 
 #include <libft.h>
 
-int	ft_memchr(void const *mem, int c)
+int ft_memchr(void const *mem, int c, size_t len)
 {
+	unsigned char const *src = (const unsigned char *)mem;
+
+	while (len-- > 0)
+	{
+		if (*src == c)
+			return (void *)src;
+		src++;
+	}
+	return (0);
 }

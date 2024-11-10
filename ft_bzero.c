@@ -12,6 +12,8 @@
 
 #include <libft.h>
 
-void	ft_bzero(void *mem, size_t sz)
+void ft_bzero(void *mem, size_t sz)
 {
+	while (sz--)
+		*(unsigned char *)mem++ = 0;
 }
