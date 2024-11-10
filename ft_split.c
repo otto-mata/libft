@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/09 11:07:11 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/10 23:05:58 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char **ft_split(char const *s, char c)
 	size_t array_i;
 	size_t src_len;
 
-	word_count = ft_count_words(s, c) + 1;
+	word_count = ft_count_words((char *)s, c) + 1;
 	str_array = malloc(word_count * sizeof(char *));
 	if (!str_array)
 		return (0);
@@ -66,7 +66,7 @@ char **ft_split(char const *s, char c)
 	{
 		if (c == s[i])
 			continue;
-		str_array[array_i] = ft_strdup_word(s + i, c);
+		str_array[array_i] = ft_strdup_word((char *)(s + i), c);
 		i += ft_strlen(str_array[array_i]);
 		array_i++;
 	}

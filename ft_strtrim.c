@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/09 11:07:11 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/10 23:28:23 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,7 @@
 
 char	*ft_strtrim(char const *s, char const *set)
 {
+	(void)s;
+	(void)set;
+	return ("");
 }

@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/09 11:07:11 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/10 23:06:33 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t ft_strlcpy(char *d, char const *s, size_t l)
 {
-	size_t const srclen = strlen(s);
+	size_t const srclen = ft_strlen(s);
 
 	if (srclen < l)
 		ft_memcpy(d, s, srclen + 1);

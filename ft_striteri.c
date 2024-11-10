@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/09 11:07:11 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/10 23:06:27 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void ft_striteri(char *s, void (*f)(size_t, char *))
 {
 	size_t i;
 
-	i = 0;
-	while (s[i])
-		f(i, &(s[i++]));
+	i = -1;
+	while (s[++i])
+		f(i, &(s[i]));
 }
