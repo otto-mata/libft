@@ -6,13 +6,13 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/10 23:05:22 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/12 14:16:06 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void ft_putchar_fd(char const c, int fd)
+void	ft_putchar_fd(char const c, int fd)
 {
 	write(fd, &c, 1);
 }

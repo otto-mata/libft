@@ -6,12 +6,11 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/12 13:51:57 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/12 14:17:15 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-
 
 int	is_in_charset(char c, char const *set)
 {
@@ -75,8 +74,3 @@ char	*ft_strtrim(char const *s, char const *set)
 	}
 	return (s2);
 }
-// int	main(int ac, char **av)
-// {
-// 	(void)ac;
-// 	printf("%s\n", ft_strtrim(av[1], av[2]));
-// }

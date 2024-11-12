@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/12 09:46:03 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/12 14:17:26 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ char	*ft_substr(char const *s, size_t start, size_t sz)
 {
 	size_t const	len = ft_strlen(s);
 	char			*subs;
-
 
 	if (start <= len)
 	{
