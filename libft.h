@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/12 14:11:32 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/12 14:53:11 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <limits.h>
 # include <stdio.h>
 # include <stdint.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}				t_list;
 
 /**
  * @brief Checks if a character is an alphabetic letter.
@@ -75,7 +81,7 @@ size_t	ft_strlen(char const *s);
  * @param sz Number of bytes to fill.
  * @return Pointer to the memory block.
  */
-void 	*ft_memset(void *d, int c, size_t sz);
+void	*ft_memset(void *d, int c, size_t sz);
 
 /**
  * @brief Copies memory from source to destination.
@@ -85,7 +91,7 @@ void 	*ft_memset(void *d, int c, size_t sz);
  * @param sz Number of bytes to copy.
  * @return Pointer to the destination memory block.
  */
-void 	*ft_memcpy(void *d, void const *s, size_t sz);
+void	*ft_memcpy(void *d, void const *s, size_t sz);
 
 /**
  * @brief Safely moves memory from source to destination.
@@ -95,7 +101,7 @@ void 	*ft_memcpy(void *d, void const *s, size_t sz);
  * @param sz Number of bytes to move.
  * @return Pointer to the destination memory block.
  */
-void 	*ft_memmove(void *d, void const *s, size_t sz);
+void	*ft_memmove(void *d, void const *s, size_t sz);
 
 /**
  * @brief Sets a block of memory to zero.
@@ -131,7 +137,7 @@ size_t	ft_strlcat(char	*d, char const *s, size_t l);
  * @param c The character to convert.
  * @return The modified character.
  */
-int	ft_toupper(int c);
+int		ft_toupper(int c);
 
 /**
  * @brief Converts a character to lowercase.
@@ -139,7 +145,7 @@ int	ft_toupper(int c);
  * @param s The character to convert.
  * @return The modified character.
  */
-int	ft_tolower(int c);
+int		ft_tolower(int c);
 
 /**
  * @brief Finds the first occurrence of a character in a string.
@@ -320,5 +326,15 @@ void	ft_putendl_fd(char const *s, int fd);
  * @param fd The file descriptor.
  */
 void	ft_putnbr_fd(int n, int fd);
+
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstnew(void *content);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	ft_lstclear(t_list **lst, void (*del)(void*));
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new);
 
 #endif
