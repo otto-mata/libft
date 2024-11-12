@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/10 23:40:10 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/12 14:08:14 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ static int	ft_intlen(int n)
 
 char	*ft_itoa(int n)
 {
-	int	i;
-	int	digit;
-	int	const sign = (n < 0);
-	int	const nlen = ft_intlen(n);
-	char *str;
+	int	const	sign = (n < 0);
+	int	const 	nlen = ft_intlen(n);
+	int			i;
+	int			digit;
+	char 		*str;
 
 	if (n == 0)
 		return (ft_strdup("0"));
@@ -70,7 +70,7 @@ char	*ft_itoa(int n)
 	if (!str)
 		return (0);
 	i = 0;
-	while (i < nlen - 1 + sign)
+	while (i < nlen)
 	{
 		digit = n % 10;
 		str[i++] = '0' + ft_abs(digit);
@@ -78,7 +78,11 @@ char	*ft_itoa(int n)
 	}
 	if (sign)
 		str[i] = '-';
-	str[i + sign] = '\0';
 	ft_strrev(str);
 	return (str);
 }
+
+// int main()
+// {
+// 	printf("%s\n", ft_itoa(INT_MAX));
+// }

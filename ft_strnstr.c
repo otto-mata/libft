@@ -6,16 +6,29 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/10 23:27:57 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/12 08:51:16 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char *ft_strnstr(char const *s1, char const *s2, size_t n)
+char	*ft_strnstr(char const *s1, char const *s2, size_t n)
 {
-	(void)s1;
-	(void)s2;
-	(void)n;
-	return ("");
+	size_t	j;
+
+	if (*s2 == 0)
+		return ((char *)s1);
+	if (*s1 == 0)
+		return (0);
+	while (n)
+	{
+		j = 0;
+		while (s1[j] == s2[j] && s1[j] && j < n)
+			j++;
+		if (s2[j] == 0)
+			return ((char *)s1);
+		s1++;
+		n--;
+	}
+	return (0);
 }

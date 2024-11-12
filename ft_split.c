@@ -6,16 +6,16 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/10 23:05:58 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/12 10:36:27 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-static size_t ft_count_words(char *str, char c)
+static size_t	ft_count_words(char *str, char c)
 {
-	size_t words_found;
-	size_t i;
+	size_t	words_found;
+	size_t	i;
 
 	words_found = 0;
 	i = 0;
@@ -28,16 +28,16 @@ static size_t ft_count_words(char *str, char c)
 	return (words_found);
 }
 
-static char *ft_strdup_word(char *s, char c)
+static char	*ft_strdup_word(char *s, char c)
 {
-	size_t src_len;
-	size_t i;
-	char *dest;
+	size_t	src_len;
+	size_t	i;
+	char	*dest;
 
 	src_len = -1;
 	while ((!(s[++src_len] == c)) && s[src_len])
 		;
-	dest = malloc(src_len * sizeof(char));
+	dest = malloc((src_len + 1) * sizeof(char));
 	if (!dest)
 		return (0);
 	i = -1;
@@ -47,13 +47,13 @@ static char *ft_strdup_word(char *s, char c)
 	return (dest);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char **str_array;
-	size_t word_count;
-	size_t i;
-	size_t array_i;
-	size_t src_len;
+	char	**str_array;
+	size_t	word_count;
+	size_t	i;
+	size_t	array_i;
+	size_t	src_len;
 
 	word_count = ft_count_words((char *)s, c) + 1;
 	str_array = malloc(word_count * sizeof(char *));
@@ -65,7 +65,7 @@ char **ft_split(char const *s, char c)
 	while (++i < src_len)
 	{
 		if (c == s[i])
-			continue;
+			continue ;
 		str_array[array_i] = ft_strdup_word((char *)(s + i), c);
 		i += ft_strlen(str_array[array_i]);
 		array_i++;

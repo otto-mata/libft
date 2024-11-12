@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/10 23:54:16 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/12 14:11:32 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <sys/types.h>
 # include <unistd.h>
 # include <limits.h>
+# include <stdio.h>
+# include <stdint.h>
+
 /**
  * @brief Checks if a character is an alphabetic letter.
  *
@@ -128,7 +131,7 @@ size_t	ft_strlcat(char	*d, char const *s, size_t l);
  * @param c The character to convert.
  * @return The modified character.
  */
-char	ft_toupper(char c);
+int	ft_toupper(int c);
 
 /**
  * @brief Converts a character to lowercase.
@@ -136,17 +139,17 @@ char	ft_toupper(char c);
  * @param s The character to convert.
  * @return The modified character.
  */
-char	ft_tolower(char c);
+int	ft_tolower(int c);
 
 /**
  * @brief Finds the first occurrence of a character in a string.
  *
  * @param s The string to search.
- * @param c The character to find.
+ * @param c The value to find.
  * @return Pointer to the first occurrence of the character,
  * or NULL if not found.
  */
-char	*ft_strchr(char const *s, char c);
+char	*ft_strchr(char const *s, int c);
 
 /**
  * @brief Finds the last occurrence of a character in a string.
@@ -276,7 +279,7 @@ char	*ft_itoa(int n);
  * @param f The function to apply.
  * @return Pointer to the new string, or NULL if allocation fails.
  */
-char	*ft_strmapi(char const *s, char (*f)(size_t, char));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 /**
  * @brief Applies a function to each character of a string in place.
@@ -284,7 +287,7 @@ char	*ft_strmapi(char const *s, char (*f)(size_t, char));
  * @param s The input string.
  * @param f The function to apply.
  */
-void	ft_striteri(char	*s, void (*f)(size_t, char	*));
+void	ft_striteri(char	*s, void (*f)(unsigned int, char	*));
 
 /**
  * @brief Writes a character to a file descriptor.

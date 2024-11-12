@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 15:29:32 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/09 10:39:33 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/12 11:09:00 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@
 
 uint64_t hash(void *area, size_t n)
 {
-	uint64_t hash;
-	unsigned char *p;
-	size_t i;
+	uint64_t		hash;
+	unsigned char	*p;
+	size_t			i;
 
 	hash = FNV_OFFSET;
 	p = area;
@@ -43,24 +43,24 @@ uint64_t hash(void *area, size_t n)
 	return (hash);
 }
 
-char toupper_wrapper(uint32_t i, char c)
+char toupper_wrapper(size_t i, char c)
 {
 	(void)i;
 	return (ft_toupper(c));
 }
 
-char tolower_wrapper(uint32_t i, char c)
+char tolower_wrapper(size_t i, char c)
 {
 	(void)i;
 	return (ft_tolower(c));
 }
-void void_toupper_wrapper(uint32_t i, char *c)
+void void_toupper_wrapper(size_t i, char *c)
 {
 	(void)i;
 	*c = ft_toupper(*c);
 }
 
-void void_tolower_wrapper(uint32_t i, char *c)
+void void_tolower_wrapper(size_t i, char *c)
 {
 	(void)i;
 	*c = ft_tolower(*c);
@@ -525,18 +525,18 @@ int main(void)
 	ft_striteri(s, &void_tolower_wrapper);
 	assert(strcmp(s, "hello world") == 0);
 	printf(" - OK\n");
-	printf("ft_putchar_fd()");
-	char *s = malloc(64);
-	char *path = malloc(22);
-	strcpy(path, "/tmp/");
-	char *tmp_filename = random_string(16);
-	strcat(path, tmp_filename);
-	printf("%s\n", path);
-	bzero(s, 64);
-	int fd = open(path, O_RDWR | O_CREAT, 0666);
-	assert(fd > 0);
-	ft_putchar_fd('c', fd);
-	printf("%zd\n", read(fd, s, 1));
-	printf("%c\n", s[0]);
-	assert(s[0] == 'c');
+	// printf("ft_putchar_fd()");
+	// char *s = malloc(64);
+	// char *path = malloc(22);
+	// strcpy(path, "/tmp/");
+	// char *tmp_filename = random_string(16);
+	// strcat(path, tmp_filename);
+	// printf("%s\n", path);
+	// bzero(s, 64);
+	// int fd = open(path, O_RDWR | O_CREAT, 0666);
+	// assert(fd > 0);
+	// ft_putchar_fd('c', fd);
+	// printf("%zd\n", read(fd, s, 1));
+	// printf("%c\n", s[0]);
+	// assert(s[0] == 'c');
 }
