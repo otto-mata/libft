@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:45:58 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/12 15:23:07 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/13 21:06:19 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,16 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*map;
 
-	map = ft_calloc(1, sizeof(t_list));
+	map = ft_lstnew(f(lst->content));
 	if (!map)
 		return (0);
+	lst = lst->next;
 	while (lst)
 	{
-		map->content = f(lst->content);
+		ft_lstadd_back(&map, ft_lstnew(f(lst->content)));
+		if (ft_lstlast(map) == 0)
+			ft_lstclear(&map, del);
 		lst = lst->next;
-		map->next = ft_calloc(1, sizeof(t_list));
-		if (!(map->next))
-		{
-			del(map->content);
-			return (0);
-		}
-		map = map->next;
 	}
 	return (map);
 }

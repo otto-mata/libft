@@ -33,6 +33,7 @@ FILES		=	ft_atoi.c \
 				ft_substr.c \
 				ft_tolower.c \
 				ft_toupper.c
+
 BFILES		=	ft_lstadd_back.c \
 				ft_lstadd_front.c \
 				ft_lstclear.c \
@@ -46,7 +47,7 @@ HEADERS		=	-I.
 OBJS		=	$(FILES:.c=.o)
 BOBJS		=	$(BFILES:.c=.o)
 CC			=	cc
-CFLAGS		=	-Wall -Werror -Wextra
+CFLAGS		=	-Wall -Werror -Wextra -g3
 
 $(NAME) : $(OBJS)
 	ar rc $(NAME) $^
@@ -57,8 +58,8 @@ $(NAME) : $(OBJS)
 
 all : $(NAME)
 
-bonus : fclean $(OBJS) $(BOBJS)
-	ar rc $(NAME) $(OBJS) $(BOBJS)
+bonus : $(BOBJS) $(OBJS)
+	ar rc $(NAME) $^
 
 clean : 
 	rm -f *.o
