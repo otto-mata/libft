@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/12 14:53:11 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/18 13:53:34 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -240,8 +240,7 @@ char	*ft_strdup(char const *s);
  * @param sz Length of the substring.
  * @return Pointer to the newly created substring, or NULL if allocation fails.
  */
-char	*ft_substr(char const *s, size_t start, size_t sz);
-
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 /**
  * @brief Joins two strings into a new string.
  *

@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/10 23:54:07 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/18 12:46:37 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 char	*ft_strrchr(char const *s, int c)
 {
-	char	*ret;
+	char			*ret;
+	unsigned char	uc;
 
 	ret = 0;
-	if (c == 0)
+	uc = (unsigned char)c;
+	if (uc == 0)
 		return ((char *)(s + ft_strlen(s)));
 	while (*s)
 	{
-		if (*s == (char)c)
+		if (*s == uc)
 			ret = (char *)s;
 		s++;
 	}

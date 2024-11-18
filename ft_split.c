@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/12 10:36:27 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/18 14:38:40 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,20 @@ static char	*ft_strdup_word(char *s, char c)
 	return (dest);
 }
 
+void	*ft_free_all(char **strs, size_t sz)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < sz + 1)
+	{
+		free(strs[i]);
+		i++;
+	}
+	free(strs);
+	return (0);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**str_array;
@@ -67,6 +81,8 @@ char	**ft_split(char const *s, char c)
 		if (c == s[i])
 			continue ;
 		str_array[array_i] = ft_strdup_word((char *)(s + i), c);
+		if (!str_array[array_i])
+			return (ft_free_all(str_array, array_i));
 		i += ft_strlen(str_array[array_i]);
 		array_i++;
 	}

@@ -6,32 +6,32 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/12 14:17:26 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/18 13:57:54 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-char	*ft_substr(char const *s, size_t start, size_t sz)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t const	len = ft_strlen(s);
-	char			*subs;
+	size_t	i;
+	size_t	ssz;
+	size_t	newsz;
+	char	*subs;
 
-	if (start <= len)
-	{
-		s += start;
-		if (sz >= len)
-			sz = len - start;
-	}
-	else
-	{
-		s += len;
-		sz = 0;
-	}
-	subs = ft_calloc(sz + 1, sizeof(char));
+	if (!s)
+		return (0);
+	ssz = ft_strlen(s);
+	if (start > ssz)
+		return (ft_strdup(""));
+	newsz = ssz - start;
+	if (newsz > len)
+		newsz = len;
+	subs = ft_calloc(newsz + 1, sizeof(char));
 	if (!subs)
 		return (0);
-	ft_strlcpy(subs, s, sz + 1);
-	subs[sz] = 0;
+	i = 0;
+	while (i < newsz)
+		subs[i++] = s[start++];
 	return (subs);
 }
