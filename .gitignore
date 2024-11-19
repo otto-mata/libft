@@ -54,3 +54,4 @@ dkms.conf
 ./main.c
 ./.vscode/
 ./libft.code-workspace
+.bonus
