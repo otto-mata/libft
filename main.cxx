@@ -6,26 +6,26 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 15:29:32 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/12 11:09:00 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:11:14 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <assert.h>
 #include <ctype.h>
+#include <fcntl.h>
+#include <libft.h>
 #include <stdint.h>
 #include <string.h>
 #include <strings.h>
-#include <assert.h>
-#include <fcntl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#include <unistd.h>
 #include <time.h>
+#include <unistd.h>
 
 #define FNV_OFFSET 14695981039346656037UL
 #define FNV_PRIME 1099511628211UL
 
-uint64_t hash(void *area, size_t n)
+uint64_t	hash(void *area, size_t n)
 {
 	uint64_t		hash;
 	unsigned char	*p;
@@ -43,34 +43,36 @@ uint64_t hash(void *area, size_t n)
 	return (hash);
 }
 
-char toupper_wrapper(size_t i, char c)
+char	toupper_wrapper(size_t i, char c)
 {
 	(void)i;
 	return (ft_toupper(c));
 }
 
-char tolower_wrapper(size_t i, char c)
+char	tolower_wrapper(size_t i, char c)
 {
 	(void)i;
 	return (ft_tolower(c));
 }
-void void_toupper_wrapper(size_t i, char *c)
+void	void_toupper_wrapper(size_t i, char *c)
 {
 	(void)i;
 	*c = ft_toupper(*c);
 }
 
-void void_tolower_wrapper(size_t i, char *c)
+void	void_tolower_wrapper(size_t i, char *c)
 {
 	(void)i;
 	*c = ft_tolower(*c);
 }
 
-void seeding_magic(void)
+void	seeding_magic(void)
 {
-	void *urandom = calloc(128, sizeof(uint8_t));
-	int const fd = open("/dev/urandom", O_RDONLY);
+	void		*urandom;
+	int const	fd;
 
+	urandom = calloc(128, sizeof(uint8_t));
+	fd = open("/dev/urandom", O_RDONLY);
 	if (!fd)
 		return (srand(time(0)));
 	if (read(fd, urandom, 128) != 128)
@@ -79,11 +81,11 @@ void seeding_magic(void)
 	free(urandom);
 }
 
-char *random_string(size_t sz)
+char	*random_string(size_t sz)
 {
-	char *s;
-	size_t i;
-	char c;
+	char	*s;
+	size_t	i;
+	char	c;
 
 	s = calloc(sz + 1, sizeof(char));
 	if (!s)
@@ -101,8 +103,16 @@ char *random_string(size_t sz)
 	return (s);
 }
 
-int main(void)
+int	main(void)
 {
+	void		*ptr;
+	uint64_t	chksum;
+	uint64_t	ret;
+	int64_t		sret;
+	int			*int_arr;
+	char		*s;
+	char		**srr;
+
 	seeding_magic();
 	printf("TEST WILL COMMENCE. BE PREPARED, OR DIE.\n");
 	printf("Part 1 - Libc Functions\n");
@@ -172,9 +182,9 @@ int main(void)
 	assert(ft_strlen("") == strlen(""));
 	printf(" - OK\n");
 	printf("ft_memset()");
-	void *ptr = malloc(64);
+	ptr = malloc(64);
 	memset(ptr, 42, 64);
-	uint64_t chksum = hash(ptr, 64);
+	chksum = hash(ptr, 64);
 	ft_memset(ptr, 42, 64);
 	assert(hash(ptr, 64) == chksum);
 	memset(ptr, 0, 64);
@@ -209,19 +219,23 @@ int main(void)
 	printf(" - OK\n");
 	printf("ft_memmove()");
 	bzero(ptr, 64);
-	memcpy(ptr, "wsh la zone c comment ou koi moi sava trql la sante tu coco hin", 64);
+	memcpy(ptr,
+		"wsh la zone c comment ou koi moi sava trql la sante tu coco hin", 64);
 	memmove(ptr, ptr + 12, 52);
 	chksum = hash(ptr, 64);
 	bzero(ptr, 64);
-	memcpy(ptr, "wsh la zone c comment ou koi moi sava trql la sante tu coco hin", 64);
+	memcpy(ptr,
+		"wsh la zone c comment ou koi moi sava trql la sante tu coco hin", 64);
 	ft_memmove(ptr, ptr + 12, 52);
 	assert(hash(ptr, 64) == chksum);
 	bzero(ptr, 64);
-	memcpy(ptr, "wsh la zone c comment ou koi moi sava trql la sante tu coco hin", 64);
+	memcpy(ptr,
+		"wsh la zone c comment ou koi moi sava trql la sante tu coco hin", 64);
 	memmove(ptr + 12, ptr, 52);
 	chksum = hash(ptr, 64);
 	bzero(ptr, 64);
-	memcpy(ptr, "wsh la zone c comment ou koi moi sava trql la sante tu coco hin", 64);
+	memcpy(ptr,
+		"wsh la zone c comment ou koi moi sava trql la sante tu coco hin", 64);
 	ft_memmove(ptr + 12, ptr, 52);
 	assert(hash(ptr, 64) == chksum);
 	printf(" - OK\n");
@@ -248,7 +262,7 @@ int main(void)
 	printf("ft_strlcat()");
 	bzero(ptr, 64);
 	strcpy(ptr, "Ceci est une phrase de test la team.");
-	uint64_t ret = strlcat(ptr, " oe oe oe", strlen(ptr));
+	ret = strlcat(ptr, " oe oe oe", strlen(ptr));
 	chksum = hash(ptr, 64);
 	bzero(ptr, 64);
 	strcpy(ptr, "Ceci est une phrase de test la team.");
@@ -296,7 +310,7 @@ int main(void)
 	assert(ft_strrchr(ptr, '|') == strrchr(ptr, '|'));
 	printf(" - OK\n");
 	printf("ft_strncmp()");
-	int64_t sret = strncmp("aifbe", "wpeif", 5);
+	sret = strncmp("aifbe", "wpeif", 5);
 	if (sret < 0)
 		assert(ft_strncmp("aifbe", "wpeif", 5) < 0);
 	else if (sret > 0)
@@ -305,7 +319,6 @@ int main(void)
 	}
 	else
 		assert(ft_strncmp("aifbe", "wpeif", 5) == 0);
-
 	sret = strncmp("aifbe", "wpeif", 2);
 	if (sret < 0)
 		assert(ft_strncmp("aifbe", "wpeif", 2) < 0);
@@ -313,7 +326,6 @@ int main(void)
 		assert(ft_strncmp("aifbe", "wpeif", 2) > 0);
 	else
 		assert(ft_strncmp("aifbe", "wpeif", 2) == 0);
-
 	sret = strncmp("aifbe", "wpeif", 0);
 	if (sret < 0)
 		assert(ft_strncmp("aifbe", "wpeif", 0) < 0);
@@ -321,7 +333,6 @@ int main(void)
 		assert(ft_strncmp("aifbe", "wpeif", 0) > 0);
 	else
 		assert(ft_strncmp("aifbe", "wpeif", 0) == 0);
-
 	sret = strncmp("aifbe", "aifbe", 10);
 	if (sret < 0)
 		assert(ft_strncmp("aifbe", "aifbe", 10) < 0);
@@ -329,7 +340,6 @@ int main(void)
 		assert(ft_strncmp("aifbe", "aifbe", 10) > 0);
 	else
 		assert(ft_strncmp("aifbe", "aifbe", 10) == 0);
-
 	printf(" - OK\n");
 	printf("ft_memchr()");
 	bzero(ptr, 64);
@@ -379,7 +389,7 @@ int main(void)
 	assert(ft_atoi("  \t\n--4") == atoi("  \t\n--4"));
 	printf(" - OK\n");
 	printf("ft_calloc()");
-	int *int_arr = ft_calloc(2, sizeof(int));
+	int_arr = ft_calloc(2, sizeof(int));
 	assert(int_arr);
 	free(int_arr);
 	int_arr = ft_calloc(0, sizeof(int));
@@ -395,7 +405,7 @@ int main(void)
 	printf("ft_strdup()");
 	bzero(ptr, 64);
 	strcpy(ptr, "RPIGHAPIHGPIAHG(_#$YT*)@#QIPHTQPIHT");
-	char *s = ft_strdup(ptr);
+	s = ft_strdup(ptr);
 	assert(strcmp(ptr, s) == 0);
 	bzero(ptr, 64);
 	strcpy(ptr, "");
@@ -475,7 +485,7 @@ int main(void)
 	assert(strcmp(s, "") == 0);
 	printf(" - OK\n");
 	printf("ft_split()");
-	char **srr = ft_split("Hello World", ' ');
+	srr = ft_split("Hello World", ' ');
 	assert(strlen(srr[0]) == 5);
 	assert(strlen(srr[1]) == 5);
 	assert(srr[2] == 0);
