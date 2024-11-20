@@ -6,11 +6,11 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:32:16 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/12 14:54:27 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/20 12:10:21 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 int	ft_lstsize(t_list *lst)
 {

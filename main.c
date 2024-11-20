@@ -6,14 +6,14 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 15:29:32 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/18 17:11:14 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/20 12:16:16 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <assert.h>
 #include <ctype.h>
 #include <fcntl.h>
-#include <libft.h>
+#include "libft.h"
 #include <stdint.h>
 #include <string.h>
 #include <strings.h>
@@ -43,24 +43,24 @@ uint64_t	hash(void *area, size_t n)
 	return (hash);
 }
 
-char	toupper_wrapper(size_t i, char c)
+char	toupper_wrapper(unsigned int i, char c)
 {
 	(void)i;
 	return (ft_toupper(c));
 }
 
-char	tolower_wrapper(size_t i, char c)
+char	tolower_wrapper(unsigned int i, char c)
 {
 	(void)i;
 	return (ft_tolower(c));
 }
-void	void_toupper_wrapper(size_t i, char *c)
+void	void_toupper_wrapper(unsigned int i, char *c)
 {
 	(void)i;
 	*c = ft_toupper(*c);
 }
 
-void	void_tolower_wrapper(size_t i, char *c)
+void	void_tolower_wrapper(unsigned int i, char *c)
 {
 	(void)i;
 	*c = ft_tolower(*c);
@@ -69,10 +69,9 @@ void	void_tolower_wrapper(size_t i, char *c)
 void	seeding_magic(void)
 {
 	void		*urandom;
-	int const	fd;
+	int const	fd = open("/dev/urandom", O_RDONLY);
 
 	urandom = calloc(128, sizeof(uint8_t));
-	fd = open("/dev/urandom", O_RDONLY);
 	if (!fd)
 		return (srand(time(0)));
 	if (read(fd, urandom, 128) != 128)
@@ -535,18 +534,4 @@ int	main(void)
 	ft_striteri(s, &void_tolower_wrapper);
 	assert(strcmp(s, "hello world") == 0);
 	printf(" - OK\n");
-	// printf("ft_putchar_fd()");
-	// char *s = malloc(64);
-	// char *path = malloc(22);
-	// strcpy(path, "/tmp/");
-	// char *tmp_filename = random_string(16);
-	// strcat(path, tmp_filename);
-	// printf("%s\n", path);
-	// bzero(s, 64);
-	// int fd = open(path, O_RDWR | O_CREAT, 0666);
-	// assert(fd > 0);
-	// ft_putchar_fd('c', fd);
-	// printf("%zd\n", read(fd, s, 1));
-	// printf("%c\n", s[0]);
-	// assert(s[0] == 'c');
 }
