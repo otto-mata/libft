@@ -43,7 +43,6 @@ BSRCS=ft_lstadd_back.c \
 		ft_lstmap.c \
 		ft_lstnew.c \
 		ft_lstsize.c
-HEADERS=-I.
 OBJS=$(patsubst %.c,%.o,$(SRCS))
 BOBJS=$(patsubst %.c,%.o,$(BSRCS))
 CC=cc
@@ -56,7 +55,7 @@ $(NAME) : $(OBJS)
 	${AR} $@ $^
 
 %.o : %.c
-	$(CC) -c $(HEADERS) -o $@ $^ $(CFLAGS)
+	$(CC) -c -o $@ $^ $(CFLAGS)
 
 
 all : $(NAME)
