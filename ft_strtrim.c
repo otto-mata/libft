@@ -6,13 +6,13 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/20 12:10:21 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/22 12:00:08 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_in_charset(char c, char const *set)
+static int	is_in_charset(char c, char const *set)
 {
 	int	i;
 
@@ -23,7 +23,7 @@ int	is_in_charset(char c, char const *set)
 	return (0);
 }
 
-size_t	ft_first_non_set(char const *s1, char const *set)
+static size_t	ft_first_non_set(char const *s1, char const *set)
 {
 	size_t	i;
 
@@ -64,8 +64,8 @@ char	*ft_strtrim(char const *s, char const *set)
 	firstchar = ft_first_non_set(s, set);
 	dsz = ft_no_trail_len(s + firstchar, set);
 	s2 = ft_calloc(dsz + 1, sizeof(char));
-	if (s2 == NULL)
-		return (NULL);
+	if (s2 == 0)
+		return (0);
 	i = 0;
 	while (i < dsz)
 	{

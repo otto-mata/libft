@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:45:58 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/20 17:43:34 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/22 11:59:52 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*iter;
 	void	*new_content;
 
-	map = NULL;
+	map = 0;
 	if (!lst || !f || !del)
-		return (NULL);
+		return (0);
 	while (lst)
 	{
 		new_content = f(lst->content);
@@ -29,7 +29,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		{
 			ft_lstclear(&map, del);
 			del(new_content);
-			return (NULL);
+			return (0);
 		}
 		ft_lstadd_back(&map, iter);
 		lst = lst->next;
