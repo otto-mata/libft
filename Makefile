@@ -52,7 +52,7 @@ NAME_BONUS=.bonus
 LIB=ranlib
 
 $(NAME) : $(OBJS)
-	${AR} $@ $^
+	$(AR) $@ $^
 
 %.o : %.c
 	$(CC) -c -o $@ $^ $(CFLAGS)
@@ -60,15 +60,15 @@ $(NAME) : $(OBJS)
 
 all : $(NAME)
 
-${NAME_BONUS}:	${OBJS} ${BOBJS}
-	${AR} ${NAME} ${OBJS} ${BOBJS}
-	${LIB} ${NAME}
-	touch ${NAME_BONUS}
+$(NAME_BONUS):	$(OBJS) $(BOBJS)
+	$(AR) $(NAME) $(OBJS) $(BOBJS)
+	$(LIB) $(NAME)
+	touch $(NAME_BONUS)
 
 bonus : $(NAME_BONUS)
 
 clean : 
-	rm -f ${OBJS} ${BOBJS} ${NAME_BONUS}
+	rm -f $(OBJS) $(BOBJS) $(NAME_BONUS)
 
 fclean : clean
 	rm -f $(NAME)
