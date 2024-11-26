@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/20 12:10:21 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/23 13:57:57 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,3 @@ char	*ft_itoa(int n)
 	ft_strrev(str);
 	return (str);
 }
-
-// int main()
-// {
-// 	printf("%s\n", ft_itoa(INT_MAX));
-// }

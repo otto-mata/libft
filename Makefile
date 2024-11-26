@@ -43,8 +43,8 @@ BSRCS=ft_lstadd_back.c \
 		ft_lstmap.c \
 		ft_lstnew.c \
 		ft_lstsize.c
-OBJS=$(patsubst %.c,%.o,$(SRCS))
-BOBJS=$(patsubst %.c,%.o,$(BSRCS))
+OBJS=$(SRCS:.c=.o)
+BOBJS=$(BSRCS:.c=.o)
 CC=cc
 CFLAGS=-Wall -Werror -Wextra
 AR=ar rc
@@ -53,10 +53,6 @@ LIB=ranlib
 
 $(NAME) : $(OBJS)
 	$(AR) $@ $^
-
-%.o : %.c
-	$(CC) -c -o $@ $^ $(CFLAGS)
-
 
 all : $(NAME)
 
