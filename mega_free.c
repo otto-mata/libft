@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   mega_free.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/26 16:51:56 by tblochet         ###   ########.fr       */
+/*   Created: 2024/12/06 10:35:06 by tblochet          #+#    #+#             */
+/*   Updated: 2024/12/06 10:41:45 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	mega_free(int n, ...)
 {
-	char			*d;
-	unsigned int	i;
+	va_list	args;
+	void	*arg;
+	int		i;
 
-	d = ft_strdup(s);
-	if (!d)
-		return (0);
-	i = -1;
-	while (d[++i])
-		d[i] = f(i, d[i]);
-	return (d);
+	va_start(args, n);
+	i = 0;
+	while (i < n)
+	{
+		arg = va_arg(args, void *);
+		free(arg);
+	}
+	va_end(args);
+	return ;
 }

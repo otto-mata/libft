@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/26 07:50:45 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/06 10:36:22 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <limits.h>
 # include <stdio.h>
 # include <stdint.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
