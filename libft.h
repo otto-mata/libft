@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/06 10:43:21 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/26 07:50:45 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <limits.h>
 # include <stdio.h>
 # include <stdint.h>
-# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -394,12 +393,5 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
  * @param new Node to append.
  */
 void	ft_lstadd_back(t_list **lst, t_list *new);
-
-/**
- * @brief Free all pointer passed as arguments. 
- * @param n Number of pointer to free
- * @param / Pointers to free
- */
-void	mega_free(int n, ...);
 
 #endif
