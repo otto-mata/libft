@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/20 12:10:21 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/31 17:13:07 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string.h"
 
-size_t	ft_strlcpy(char *d, char const *s, size_t l)
+void	*ft_memchr(void const *mem, int c, size_t len)
 {
-	size_t const	srclen = ft_strlen(s);
+	unsigned char const	*src = (unsigned char const *)mem;
 
-	if (srclen < l)
-		ft_memcpy(d, s, srclen + 1);
-	else if (l != 0)
+	while (len-- > 0)
 	{
-		ft_memcpy(d, s, l - 1);
-		d[l - 1] = '\0';
+		if (*src == (unsigned char)c)
+			return ((void *)src);
+		src++;
 	}
-	return (srclen);
+	return (0);
 }

@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/20 12:10:21 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/31 17:13:07 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string.h"
 
-char	*ft_strdup(char const *s)
+size_t	ft_strlen(char const *s)
 {
-	size_t const	len = ft_strlen(s) + 1;
-	void			*new;
+	size_t	i;
 
-	new = ft_calloc(len, sizeof(char));
-	if (!new)
-		return (0);
-	return ((char *)ft_memcpy(new, s, len));
+	i = 0;
+	while (s[i])
+	{
+		i++;
+	}
+	return (i);
 }

@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/22 12:01:09 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/31 17:35:07 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string.h"
 
-void	*ft_memcpy(void *d, void const *s, size_t sz)
+static size_t	ft_min(size_t a, size_t b)
 {
-	unsigned char const	*src = s;
-	unsigned char		*dest;
+	if (a < b)
+		return (a);
+	return (b);
+}
 
-	if (!d && !s)
-		return (d);
-	dest = d;
-	while (sz--)
-		*dest++ = *src++;
-	return (d);
+int	ft_strcmp(char const *s1, char const *s2)
+{
+	return (ft_memcmp(s1, s2, ft_min(ft_strlen(s1), ft_strlen(s2))));
 }

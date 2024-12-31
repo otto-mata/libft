@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/20 12:10:21 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/31 18:19:30 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string.h"
 
-void	*ft_memmove(void *d, void const *s, size_t sz)
+char	*ft_strstr(char const *s1, char const *s2)
 {
-	char const	*src = s;
-	char		*dest;
-	char		*lasts;
-	char		*lastd;
+	const size_t	s1_len = ft_strlen(s1);
+	const size_t	s2_len = ft_strlen(s2);
+	ssize_t			i;
+	ssize_t			j;
 
-	if (!d && !s)
-		return (d);
-	dest = d;
-	if (dest < src)
-		ft_memcpy(d, s, sz);
-	else
+	if (!ft_strchr(s1, *s2))
+		return (0);
+	if (s2_len > s1_len)
+		return (0);
+	i = -1;
+	while (++i <= s1_len - s2_len)
 	{
-		lasts = (char *)(src + (sz - 1));
-		lastd = dest + (sz - 1);
-		while (sz--)
-			*lastd-- = *lasts--;
+		j = -1;
+		while (++j < s2_len)
+			if (s1[i + j] != s2[j])
+				break ;
+		if (j == s2_len)
+			return ((char *)s1 + i);
 	}
-	return (d);
+	return (0);
 }

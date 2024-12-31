@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strpbrk.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/20 12:10:21 by tblochet         ###   ########.fr       */
+/*   Created: 2024/12/31 17:57:48 by tblochet          #+#    #+#             */
+/*   Updated: 2024/12/31 17:59:49 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "string.h"
 
-char	*ft_strnstr(char const *s1, char const *s2, size_t n)
+char	*ft_strpbrk(const char *s, const char *accept)
 {
-	size_t	j;
-
-	if (*s2 == 0)
-		return ((char *)s1);
-	if (*s1 == 0)
-		return (0);
-	while (n)
+	const char	*src = s;
+	char		*match;
+	
+	while(*src)
 	{
-		j = 0;
-		while (s1[j] == s2[j] && s1[j] && j < n)
-			j++;
-		if (s2[j] == 0)
-			return ((char *)s1);
-		s1++;
-		n--;
+		match = ft_strchr(accept, *src);
+		if (match)
+			return (match);
+		src++;
 	}
 	return (0);
 }
