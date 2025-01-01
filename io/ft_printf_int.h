@@ -6,15 +6,15 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:26:51 by tblochet          #+#    #+#             */
-/*   Updated: 2025/01/01 22:42:20 by tblochet         ###   ########.fr       */
+/*   Updated: 2025/01/01 23:55:55 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_INT_H
 # define FT_PRINTF_INT_H
-# include "../../string/ft_string.h"
-# include "../io.h"
-# include "../../llist/llist.h"
+# include "../string/ft_string.h"
+# include "io.h"
+# include "../llist/llist.h"
 # include <limits.h>
 # include <stdarg.h>
 # include <stdbool.h>

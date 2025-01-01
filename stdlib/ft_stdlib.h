@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 19:27:11 by tblochet          #+#    #+#             */
-/*   Updated: 2025/01/01 22:45:13 by tblochet         ###   ########.fr       */
+/*   Updated: 2025/01/02 00:27:26 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,18 @@ char				*ft_getenv(const char *);
 char				*ft_l64a(long);
 long				ft_labs(long);
 ldiv_t				ft_ldiv(long, long);
-long long			ft_llabs(long long);
-lldiv_t				ft_lldiv(long long, long long);
+long long			ft_llabs(long long n);
 int					ft_putenv(char *);
 void				ft_qsort(void *, size_t, size_t, int (*)(const void *,
 							const void *));
 int					ft_setenv(const char *, const char *, int);
-double				ft_strtod(const char *restrict, char **restrict);
-float				ft_strtof(const char *restrict, char **restrict);
-long				ft_strtol(const char *restrict, char **restrict, int);
-long double			ft_strtold(const char *restrict, char **restrict);
-long long			ft_strtoll(const char *restrict, char **restrict, int);
-unsigned long		ft_strtoul(const char *restrict, char **restrict, int);
-unsigned long long	ft_strtoull(const char *restrict, char **restrict, int);
+double				ft_strtod(const char *, char **);
+float				ft_strtof(const char *, char **);
+long				ft_strtol(const char *, char **, int);
+long double			ft_strtold(const char *, char **);
+long long			ft_strtoll(const char *, char **, int);
+unsigned long		ft_strtoul(const char *, char **, int);
+unsigned long long	ft_strtoull(const char *, char **, int);
 int					ft_unsetenv(const char *);
 char				*ft_itoa(int n);
 #endif

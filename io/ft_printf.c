@@ -6,12 +6,12 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 20:01:13 by tblochet          #+#    #+#             */
-/*   Updated: 2025/01/01 22:40:10 by tblochet         ###   ########.fr       */
+/*   Updated: 2025/01/01 23:55:47 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_int.h"
-#include "../io.h"
+#include "io.h"
 
 int	ft_printf(char const *fmt, ...)
 {
