@@ -6,13 +6,13 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:58:24 by tblochet          #+#    #+#             */
-/*   Updated: 2025/01/01 22:16:47 by tblochet         ###   ########.fr       */
+/*   Updated: 2025/01/02 00:37:13 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "io.h"
 
-char	*ft_join_and_free_s1(char *s1, char *s2)
+static char	*ft_join_and_free_s1(char *s1, char *s2)
 {
 	char	*temp;
 
@@ -23,7 +23,7 @@ char	*ft_join_and_free_s1(char *s1, char *s2)
 	return (temp);
 }
 
-char	*shift_left(char *buffer)
+static char	*shift_left(char *buffer)
 {
 	int		i;
 	int		j;
@@ -50,7 +50,7 @@ char	*shift_left(char *buffer)
 	return (line);
 }
 
-char	*extract_line_from(char *buffer)
+static char	*extract_line_from(char *buffer)
 {
 	char	*line;
 	int		i;
@@ -74,7 +74,7 @@ char	*extract_line_from(char *buffer)
 	return (line);
 }
 
-char	*read_from_fd(int fd, char *res)
+static char	*read_from_fd(int fd, char *res)
 {
 	char	*buffer;
 	int		byte_read;
@@ -123,31 +123,3 @@ char	*get_next_line(int fd)
 	buffer[fd] = shift_left(buffer[fd]);
 	return (line);
 }
-
-/* #include <stdio.h>
-int	main(int argc, char const *argv[])
-{
-	int		fd;
-	int		lines;
-	int		start_lines;
-	char	*s;
-
-	if (argc < 2)
-		fd = 0;
-	else
-		fd = open(argv[1], O_RDONLY);
-	if (argc == 3)
-		start_lines = atoi(argv[2]);
-	else
-		start_lines = 5;
-	lines = 0;
-	while (lines < start_lines)
-	{
-		s = get_next_line(fd);
-		printf("%s", s);
-		free(s);
-		lines++;
-	}
-	return (0);
-}
- */

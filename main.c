@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 15:29:32 by tblochet          #+#    #+#             */
-/*   Updated: 2025/01/01 22:40:29 by tblochet         ###   ########.fr       */
+/*   Updated: 2025/01/02 00:50:16 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,30 @@
 
 
 
-char	toupper_wrapper(unsigned int i, char c)
+static char	toupper_wrapper(unsigned int i, char c)
 {
 	(void)i;
 	return (ft_toupper(c));
 }
 
-char	tolower_wrapper(unsigned int i, char c)
+static char	tolower_wrapper(unsigned int i, char c)
 {
 	(void)i;
 	return (ft_tolower(c));
 }
-void	void_toupper_wrapper(unsigned int i, char *c)
+static void	void_toupper_wrapper(unsigned int i, char *c)
 {
 	(void)i;
 	*c = ft_toupper(*c);
 }
 
-void	void_tolower_wrapper(unsigned int i, char *c)
+static void	void_tolower_wrapper(unsigned int i, char *c)
 {
 	(void)i;
 	*c = ft_tolower(*c);
 }
 
-void	seeding_magic(void)
+static void	seeding_magic(void)
 {
 	void		*urandom;
 	int const	fd = open("/dev/urandom", O_RDONLY);
@@ -62,7 +62,7 @@ void	seeding_magic(void)
 	free(urandom);
 }
 
-char	*random_string(size_t sz)
+static char	*random_string(size_t sz)
 {
 	char	*s;
 	size_t	i;
