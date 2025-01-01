@@ -6,16 +6,16 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 18:21:10 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/31 18:38:17 by tblochet         ###   ########.fr       */
+/*   Updated: 2025/01/01 22:14:01 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "string.h"
+#include "ft_string.h"
 
 /*
 TODO: static size_t for index keeping
 */
-char	*ft_strtok_r(char *str, char *charset, char **saveptr)
+char	*ft_strtok_r(char *str, char const *charset, char **saveptr)
 {
 	(void) str;
 	(void) charset;

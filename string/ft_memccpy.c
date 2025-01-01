@@ -6,11 +6,11 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 17:13:42 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/31 17:17:56 by tblochet         ###   ########.fr       */
+/*   Updated: 2025/01/01 19:27:08 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "string.h"
+#include "ft_string.h"
 
 void *ft_memccpy(void *d, const void *s, int c, size_t n)
 {

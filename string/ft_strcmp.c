@@ -6,11 +6,11 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/31 17:35:07 by tblochet         ###   ########.fr       */
+/*   Updated: 2025/01/01 19:27:08 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "string.h"
+#include "ft_string.h"
 
 static size_t	ft_min(size_t a, size_t b)
 {

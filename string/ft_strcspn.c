@@ -6,11 +6,11 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 17:38:49 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/31 17:43:31 by tblochet         ###   ########.fr       */
+/*   Updated: 2025/01/01 19:27:08 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "string.h"
+#include "ft_string.h"
 
 size_t	ft_strcspn(const char *s, const char *reject)
 {

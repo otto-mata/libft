@@ -6,11 +6,11 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/31 17:50:43 by tblochet         ###   ########.fr       */
+/*   Updated: 2025/01/01 22:13:47 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "string.h"
+#include "ft_string.h"
 
 static size_t	ft_min(size_t a, size_t b)
 {
@@ -19,7 +19,7 @@ static size_t	ft_min(size_t a, size_t b)
 	return (b);
 }
 
-size_t	ft_strncat(char *d, char const *s, size_t n)
+char	*ft_strncat(char *d, char const *s, size_t n)
 {
 	size_t const	ssz = ft_strlen(s);
 	size_t			dsz;

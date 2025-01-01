@@ -6,19 +6,23 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/31 18:19:30 by tblochet         ###   ########.fr       */
+/*   Updated: 2025/01/01 22:31:01 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "string.h"
+#include "ft_string.h"
 
 char	*ft_strstr(char const *s1, char const *s2)
 {
-	const size_t	s1_len = ft_strlen(s1);
-	const size_t	s2_len = ft_strlen(s2);
-	ssize_t			i;
-	ssize_t			j;
+	ssize_t	s1_len;
+	ssize_t	s2_len;
+	ssize_t	i;
+	ssize_t	j;
 
+	if (!s1 || !s2)
+		return (0);
+	s1_len = (ssize_t)ft_strlen(s1);
+	s2_len = (ssize_t)ft_strlen(s2);
 	if (!ft_strchr(s1, *s2))
 		return (0);
 	if (s2_len > s1_len)

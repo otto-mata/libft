@@ -6,11 +6,11 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 17:20:45 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/31 17:27:58 by tblochet         ###   ########.fr       */
+/*   Updated: 2025/01/01 22:20:02 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "string.h"
+#include "ft_string.h"
 
 char	*ft_stpncpy(char *d, char const *s, size_t n)
 {
@@ -18,8 +18,8 @@ char	*ft_stpncpy(char *d, char const *s, size_t n)
 	char			*dest;
 	char			*src;
 
-	*dest = d;
-	*src = s;
+	dest = d;
+	src = (char *)s;
 	while (*src && n--)
 		*dest++ = *src++;
 	while (n--)
