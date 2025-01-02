@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 19:59:58 by tblochet          #+#    #+#             */
-/*   Updated: 2025/01/01 20:00:47 by tblochet         ###   ########.fr       */
+/*   Updated: 2025/01/02 01:01:33 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	ft_strrev(char *str)
 {
-	int i;
-	int j;
-	char a;
-	size_t len;
+	int		i;
+	int		j;
+	char	a;
+	size_t	len;
 
 	if (!str)
-		return;
+		return ;
 	len = ft_strlen((const char *)str);
 	i = 0;
 	j = len - 1;

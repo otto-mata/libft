@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_ltoh.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 14:22:40 by tblochet          #+#    #+#             */
-/*   Updated: 2025/01/01 22:40:08 by tblochet         ###   ########.fr       */
+/*                                                                            */
+/*   ft_ltoh.c                                            ┌─┐┌┬┐┌┬┐┌─┐        */
+/*                                                        │ │ │  │ │ │        */
+/*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
+/*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
+/*   Created: 2024/11/26 14:22:40 by tblochet             │││├─┤ │ ├─┤        */
+/*   Updated: 2025/01/02 03:19:41 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	hexlen(unsigned long n)
 	return (i);
 }
 
-char	*ft_ltoh(unsigned long n, bool upper)
+char	*ft_ltoh(unsigned long n, int upper)
 {
 	int		i;
 	char	*hexd;

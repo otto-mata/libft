@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2025/01/01 22:44:43 by tblochet         ###   ########.fr       */
+/*                                                                            */
+/*   libft.h                                              ┌─┐┌┬┐┌┬┐┌─┐        */
+/*                                                        │ │ │  │ │ │        */
+/*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
+/*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
+/*   Created: 2024/11/09 11:01:51 by tblochet             │││├─┤ │ ├─┤        */
+/*   Updated: 2025/01/02 03:48:48 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <sys/types.h>
 # include <unistd.h>
 
-// Content from ft_ctype.h
 int						ft_isalnum(int c);
 int						ft_isalpha(int c);
 int						ft_iscntrl(int c);
@@ -39,7 +38,6 @@ int						ft_isblank(int c);
 int						ft_tolower(int c);
 int						ft_toupper(int c);
 
-// Content from io.h
 ssize_t					ft_putchar_fd(char c, int fd);
 ssize_t					ft_putstr_fd(char const *s, int fd);
 ssize_t					ft_putendl_fd(char const *s, int fd);
@@ -48,36 +46,35 @@ char					*get_next_line(int fd);
 
 int						ft_printf(char const *fmt, ...);
 
-// Content from ft_stdlib.h
-long					ft_a64l(const char *);
+long					ft_a64l(const char *) __attribute__((unavailable));
 int						ft_abs(int);
-double					ft_atof(const char *);
+double					ft_atof(const char *) __attribute__((unavailable));
 int						ft_atoi(const char *);
-long					ft_atol(const char *);
-long long				ft_atoll(const char *);
+long					ft_atol(const char *) __attribute__((unavailable));
 void					*ft_calloc(size_t, size_t);
 div_t					ft_div(int, int);
-char					*ft_getenv(const char *);
-char					*ft_l64a(long);
-long					ft_labs(long);
-ldiv_t					ft_ldiv(long, long);
-long long				ft_llabs(long long);
-lldiv_t					ft_lldiv(long long, long long);
-int						ft_putenv(char *);
+char					*ft_getenv(const char *) __attribute__((unavailable));
+char					*ft_l64a(long) __attribute__((unavailable));
+long					ft_labs(long) __attribute__((unavailable));
+ldiv_t					ft_ldiv(long, long) __attribute__((unavailable));
+int						ft_putenv(char *) __attribute__((unavailable));
 void					ft_qsort(void *, size_t, size_t, int (*)(const void *,
-								const void *));
-int						ft_setenv(const char *, const char *, int);
-double					ft_strtod(const char *restrict, char **restrict);
-float					ft_strtof(const char *restrict, char **restrict);
-long					ft_strtol(const char *restrict, char **restrict, int);
-long double				ft_strtold(const char *restrict, char **restrict);
-long long				ft_strtoll(const char *restrict, char **restrict, int);
-unsigned long			ft_strtoul(const char *restrict, char **restrict, int);
-unsigned long long		ft_strtoull(const char *restrict, char **restrict, int);
-int						ft_unsetenv(const char *);
+								const void *)) __attribute__((unavailable));
+int						ft_setenv(const char *, const char *,
+							int) __attribute__((unavailable));
+double					ft_strtod(const char *,
+							char **) __attribute__((unavailable));
+float					ft_strtof(const char *,
+							char **) __attribute__((unavailable));
+long					ft_strtol(const char *, char **,
+							int) __attribute__((unavailable));
+long double				ft_strtold(const char *,
+							char **) __attribute__((unavailable));
+unsigned long			ft_strtoul(const char *, char **,
+							int) __attribute__((unavailable));
+int						ft_unsetenv(const char *) __attribute__((unavailable));
 char					*ft_itoa(int n);
 
-// Content from str.h
 char					*ft_substr(char const *s, unsigned int start,
 							size_t len);
 char					*ft_strjoin(char const *s1, char const *s2);
@@ -87,7 +84,6 @@ char					*ft_strmapi(char const *s, char (*f)(unsigned int,
 								char));
 void					ft_striteri(char *s, void (*f)(unsigned int, char *));
 uint64_t				ft_hashstr(void *area, size_t n);
-// Content from ft_string.h
 void					*ft_memccpy(void *dest, const void *src, int c,
 							size_t sz);
 void					*ft_memchr(const void *s, int c, size_t n);
@@ -119,7 +115,6 @@ char					*ft_strtok_r(char *str, const char *delim,
 							char **saveptr);
 void					ft_strrev(char *str);
 void					ft_bzero(void *mem, size_t sz);
-// Content from llist.h
 typedef struct s_list	t_list;
 
 struct					s_list

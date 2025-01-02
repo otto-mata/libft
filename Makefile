@@ -1,6 +1,6 @@
 NAME=libft.a
 CC=cc
-CFLAGS=-Wall -Werror -Wextra -std=c89
+CFLAGS=-Wall -Werror -Wextra -std=c89 -pedantic -pedantic-errors -fgnuc-version=0
 AR=ar rcs
 STRING_SRC_PATH=./string/
 STR_SRC_PATH=./str/

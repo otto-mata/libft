@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf_int.h                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 16:26:51 by tblochet          #+#    #+#             */
-/*   Updated: 2025/01/01 23:55:55 by tblochet         ###   ########.fr       */
+/*                                                                            */
+/*   ft_printf_int.h                                      ┌─┐┌┬┐┌┬┐┌─┐        */
+/*                                                        │ │ │  │ │ │        */
+/*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
+/*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
+/*   Created: 2024/11/14 16:26:51 by tblochet             │││├─┤ │ ├─┤        */
+/*   Updated: 2025/01/02 03:19:47 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ void						ft_parse_flags(char const *fmt, va_list args,
 void						ft_count_flags(char const *fmt, t_formatter *flags);
 char						*va_list_parser(char flag, va_list args);
 char						*ft_itoa_unsigned(uint32_t n);
-char						*ft_ltoh(unsigned long n, bool upper);
+char						*ft_ltoh(unsigned long n, int upper);
 #endif

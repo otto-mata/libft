@@ -6,13 +6,13 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 20:08:43 by tblochet          #+#    #+#             */
-/*   Updated: 2025/01/01 20:40:00 by tblochet         ###   ########.fr       */
+/*   Updated: 2025/01/02 01:01:45 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ctype.h"
 
-int ft_isblank(int c)
+int	ft_isblank(int c)
 {
 	return (c == ' ' || c == '\t');
 }
