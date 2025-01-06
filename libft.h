@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2024/11/09 11:01:51 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/06 22:06:13 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/06 23:45:47 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ char					*ft_ltoh(unsigned long n, int upper);
 char					*ft_itoa_unsigned(uint32_t n);
 
 int						ft_printf(char const *fmt, ...);
-int						ft_sprintf(char **s, char const *fmt, ...);
-
+int						ft_sprintf(char *s, char const *fmt, ...);
+void					free2d(void **ptr, int n);
 long					ft_a64l(const char *) __attribute__((unavailable));
 int						ft_abs(int);
 double					ft_atof(const char *) __attribute__((unavailable));

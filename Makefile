@@ -1,6 +1,6 @@
 NAME=libft.a
 CC=cc
-CFLAGS=-Wall -Werror -Wextra -std=c89 -pedantic -pedantic-errors -fgnuc-version=0 -ggdb
+CFLAGS=-Wall -Werror -Wextra -ggdb
 AR=ar rcs
 STRING_SRC_PATH=./string/
 STR_SRC_PATH=./str/
@@ -88,7 +88,9 @@ STDLIB_SRC_FILES=ft_calloc.c \
 	ft_div.c \
 	ft_abs.c \
 	ft_atoi.c \
-	ft_itoa.c
+	ft_itoa.c \
+	free2d.c
+
 STRING_FULL_PATH=$(addprefix $(STRING_SRC_PATH), $(STRING_SRC_FILES))
 STR_FULL_PATH=$(addprefix $(STR_SRC_PATH), $(STR_SRC_FILES))
 CTYPE_FULL_PATH=$(addprefix $(CTYPE_SRC_PATH), $(CTYPE_SRC_FILES))

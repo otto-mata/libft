@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2025/01/06 21:04:19 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/06 22:11:00 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/06 23:08:02 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,13 @@ static void	agg_fmt_var(char const *fmt, va_list args, t_formatter *fmtr)
 	}
 }
 
-int	ft_sprintf(char **s, char const *fmt, ...)
+int	ft_sprintf(char *s, char const *fmt, ...)
 {
 	va_list		args;
 	t_formatter	formatter;
 	int			len;
 
-	if (!s)
-		return (-1);
-	*s = ft_calloc(1, 1);
-	if (!fmt || !(*s))
+	if (!fmt || !s)
 		return (-1);
 	va_start(args, fmt);
 	formatter.err = 0;
@@ -50,7 +47,7 @@ int	ft_sprintf(char **s, char const *fmt, ...)
 	formatter.flags = 0;
 	ft_count_flags(fmt, &formatter);
 	agg_fmt_var(fmt, args, &formatter);
-	len = join_formatted(fmt, formatter.flags, *s);
+	len = join_formatted(fmt, formatter.flags, s);
 	va_end(args);
 	ft_lstclear(&(formatter.flags), free);
 	return (len);

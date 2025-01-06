@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2025/01/01 20:21:44 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/06 22:09:22 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/06 23:08:49 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*get_next_line(int fd);
 
 int		ft_printf(char const *fmt, ...);
 char	*ft_ltoh(unsigned long n, int upper);
-int		ft_sprintf(char **s, char const *fmt, ...);
+int		ft_sprintf(char *s, char const *fmt, ...);
 
 char	*parse_variadic(char flag, va_list args);
 int		join_formatted(char const *fmt, t_list *f, char *s);
