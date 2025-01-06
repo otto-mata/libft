@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2025/01/01 20:21:44 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/02 03:19:20 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/06 22:09:22 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 # define IO_H
 # include "../stdlib/ft_stdlib.h"
 # include "../str/str.h"
+# include "../llist/llist.h" 
 # include <fcntl.h>
 # include <sys/stat.h>
 # include <sys/types.h>
 # include <unistd.h>
+# include <stdarg.h>
+
 # define MAX_FD 1024
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -58,4 +61,9 @@ void	ft_putnbr_fd(int n, int fd);
 char	*get_next_line(int fd);
 
 int		ft_printf(char const *fmt, ...);
+char	*ft_ltoh(unsigned long n, int upper);
+int		ft_sprintf(char **s, char const *fmt, ...);
+
+char	*parse_variadic(char flag, va_list args);
+int		join_formatted(char const *fmt, t_list *f, char *s);
 #endif

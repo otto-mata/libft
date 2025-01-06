@@ -1,6 +1,6 @@
 NAME=libft.a
 CC=cc
-CFLAGS=-Wall -Werror -Wextra -std=c89 -pedantic -pedantic-errors -fgnuc-version=0
+CFLAGS=-Wall -Werror -Wextra -std=c89 -pedantic -pedantic-errors -fgnuc-version=0 -ggdb
 AR=ar rcs
 STRING_SRC_PATH=./string/
 STR_SRC_PATH=./str/
@@ -43,7 +43,8 @@ STR_SRC_FILES=ft_strtrim.c \
 	ft_strjoin.c \
 	ft_split.c \
 	ft_hashstr.c \
-	ft_striteri.c
+	ft_striteri.c \
+	exp_string.c
 CTYPE_SRC_FILES=ft_isblank.c \
 	ft_isalpha.c \
 	ft_isalnum.c \
@@ -79,7 +80,10 @@ IO_SRC_FILES=ft_count_flags.c \
 	ft_putchar_fd.c \
 	ft_parse_flags.c \
 	ft_ltoh.c \
-	ft_putnbr_fd.c
+	ft_putnbr_fd.c \
+	join_formatted.c \
+	parse_variadic.c \
+	sprintf.c
 STDLIB_SRC_FILES=ft_calloc.c \
 	ft_div.c \
 	ft_abs.c \

@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2024/11/09 11:01:51 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/02 03:48:48 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/06 22:06:13 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,20 @@
 # include <sys/stat.h>
 # include <sys/types.h>
 # include <unistd.h>
+typedef struct s_list	t_list;
+typedef struct s_string	t_string;
+struct					s_list
+{
+	void				*content;
+	t_list				*next;
+};
+
+struct					s_string
+{
+	unsigned long		len;
+	unsigned long		sz;
+	char				*content;
+};
 
 int						ft_isalnum(int c);
 int						ft_isalpha(int c);
@@ -43,8 +57,11 @@ ssize_t					ft_putstr_fd(char const *s, int fd);
 ssize_t					ft_putendl_fd(char const *s, int fd);
 void					ft_putnbr_fd(int n, int fd);
 char					*get_next_line(int fd);
+char					*ft_ltoh(unsigned long n, int upper);
+char					*ft_itoa_unsigned(uint32_t n);
 
 int						ft_printf(char const *fmt, ...);
+int						ft_sprintf(char **s, char const *fmt, ...);
 
 long					ft_a64l(const char *) __attribute__((unavailable));
 int						ft_abs(int);
@@ -84,6 +101,10 @@ char					*ft_strmapi(char const *s, char (*f)(unsigned int,
 								char));
 void					ft_striteri(char *s, void (*f)(unsigned int, char *));
 uint64_t				ft_hashstr(void *area, size_t n);
+t_string				*expstr_new(unsigned long start_sz);
+int						expstr_append(t_string *str, char val);
+void					expstr_destroy(t_string **str);
+
 void					*ft_memccpy(void *dest, const void *src, int c,
 							size_t sz);
 void					*ft_memchr(const void *s, int c, size_t n);
@@ -115,13 +136,6 @@ char					*ft_strtok_r(char *str, const char *delim,
 							char **saveptr);
 void					ft_strrev(char *str);
 void					ft_bzero(void *mem, size_t sz);
-typedef struct s_list	t_list;
-
-struct					s_list
-{
-	void				*content;
-	t_list				*next;
-};
 
 t_list					*ft_lstmap(t_list *lst, void *(*f)(void *),
 							void (*del)(void *));

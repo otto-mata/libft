@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_display_formatted.c                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 17:11:44 by tblochet          #+#    #+#             */
-/*   Updated: 2025/01/01 22:42:51 by tblochet         ###   ########.fr       */
+/*                                                                            */
+/*   ft_display_formatted.c                               ┌─┐┌┬┐┌┬┐┌─┐        */
+/*                                                        │ │ │  │ │ │        */
+/*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
+/*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
+/*   Created: 2024/11/19 17:11:44 by tblochet             │││├─┤ │ ├─┤        */
+/*   Updated: 2025/01/06 21:38:58 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	ft_print_value(char const *s, t_list **f)
 	return (len);
 }
 
-static int	put2c(char const *s)
+static int	appnd2c(char const *s)
 {
 	return (ft_putchar_fd(*s, 1) + ft_putchar_fd(*(s + 1), 1));
 }
@@ -47,7 +47,7 @@ int	ft_display_formatted(char const *fmt, t_list *f)
 			if (ft_strchr("cspdiuxX%", fmt[i + 1]) && f)
 				len += ft_print_value(&fmt[i], &f);
 			else if (fmt[i + 1])
-				len += put2c(&fmt[i]);
+				len += appnd2c(&fmt[i]);
 			else
 				len += ft_putchar_fd('%', 1);
 			i += 2;

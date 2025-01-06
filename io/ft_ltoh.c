@@ -6,13 +6,14 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2024/11/26 14:22:40 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/02 03:19:41 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/06 21:24:37 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_int.h"
+#include "io.h"
 
-int	hexlen(unsigned long n)
+static int	hexlen(unsigned long n)
 {
 	int	i;
 

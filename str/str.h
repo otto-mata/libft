@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2025/01/01 20:26:38 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/02 03:18:51 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/06 21:30:48 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@
 # define FNV_OFFSET 14695981039346656037UL
 # define FNV_PRIME 1099511628211UL
 
+typedef struct s_string	t_string;
+
+struct					s_string
+{
+	unsigned long		len;
+	unsigned long		sz;
+	char				*content;
+};
+
 /**
  * @brief Extracts a substring from a string.
  *
@@ -27,7 +36,8 @@
  * @param sz Length of the substring.
  * @return Pointer to the newly created substring, or NULL if allocation fails.
  */
-char		*ft_substr(char const *s, unsigned int start, size_t len);
+char					*ft_substr(char const *s, unsigned int start,
+							size_t len);
 /**
  * @brief Joins two strings into a new string.
  *
@@ -35,7 +45,7 @@ char		*ft_substr(char const *s, unsigned int start, size_t len);
  * @param s2 Second string.
  * @return Pointer to the concatenated string, or NULL if allocation fails.
  */
-char		*ft_strjoin(char const *s1, char const *s2);
+char					*ft_strjoin(char const *s1, char const *s2);
 
 /**
  * @brief Trims specified characters from both ends of a string.
@@ -44,7 +54,7 @@ char		*ft_strjoin(char const *s1, char const *s2);
  * @param set Set of characters to remove.
  * @return Pointer to the trimmed string, or NULL if allocation fails.
  */
-char		*ft_strtrim(char const *s, char const *set);
+char					*ft_strtrim(char const *s, char const *set);
 
 /**
  * @brief Splits a string into an array of strings based on a delimiter.
@@ -62,7 +72,8 @@ char		*ft_strtrim(char const *s, char const *set);
  * @param f The function to apply.
  * @return Pointer to the new string, or NULL if allocation fails.
  */
-char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char					*ft_strmapi(char const *s, char (*f)(unsigned int,
+								char));
 
 /**
  * @brief Applies a function to each character of a string in place.
@@ -70,8 +81,11 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
  * @param s The input string.
  * @param f The function to apply.
  */
-void		ft_striteri(char *s, void (*f)(unsigned int, char *));
+void					ft_striteri(char *s, void (*f)(unsigned int, char *));
 
-uint64_t	ft_hashstr(void *area, size_t n);
+uint64_t				ft_hashstr(void *area, size_t n);
+t_string				*expstr_new(unsigned long start_sz);
+int						expstr_append(t_string *str, char val);
+void					expstr_destroy(t_string **str);
 
 #endif
