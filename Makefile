@@ -1,6 +1,6 @@
 NAME=libft.a
 CC=cc
-CFLAGS=-Wall -Werror -Wextra -ggdb
+CFLAGS=-Wall -Werror -Wextra
 AR=ar rcs
 STRING_SRC_PATH=./string/
 STR_SRC_PATH=./str/
