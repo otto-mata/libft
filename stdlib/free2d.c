@@ -6,15 +6,15 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2025/01/06 23:44:59 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/06 23:45:21 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/07 07:23:51 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_stdlib.h"
 
-void free2d(void **ptr, int n)
+void	free2d(void **ptr, int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < n)

@@ -6,13 +6,13 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2024/12/31 17:35:14 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/02 03:17:49 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/07 07:21:40 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 
-int ft_strcoll(const char *s1, const char *s2)
+int	ft_strcoll(const char *s1, const char *s2)
 {
 	return (ft_strcmp(s1, s2));
 }

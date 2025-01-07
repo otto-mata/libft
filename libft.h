@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2024/11/09 11:01:51 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/06 23:45:47 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/07 07:25:26 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <sys/stat.h>
 # include <sys/types.h>
 # include <unistd.h>
+
 typedef struct s_list	t_list;
 typedef struct s_string	t_string;
 struct					s_list
@@ -63,33 +64,14 @@ char					*ft_itoa_unsigned(uint32_t n);
 int						ft_printf(char const *fmt, ...);
 int						ft_sprintf(char *s, char const *fmt, ...);
 void					free2d(void **ptr, int n);
-long					ft_a64l(const char *) __attribute__((unavailable));
-int						ft_abs(int);
-double					ft_atof(const char *) __attribute__((unavailable));
-int						ft_atoi(const char *);
-long					ft_atol(const char *) __attribute__((unavailable));
-void					*ft_calloc(size_t, size_t);
-div_t					ft_div(int, int);
-char					*ft_getenv(const char *) __attribute__((unavailable));
-char					*ft_l64a(long) __attribute__((unavailable));
-long					ft_labs(long) __attribute__((unavailable));
-ldiv_t					ft_ldiv(long, long) __attribute__((unavailable));
-int						ft_putenv(char *) __attribute__((unavailable));
-void					ft_qsort(void *, size_t, size_t, int (*)(const void *,
-								const void *)) __attribute__((unavailable));
-int						ft_setenv(const char *, const char *,
-							int) __attribute__((unavailable));
-double					ft_strtod(const char *,
-							char **) __attribute__((unavailable));
-float					ft_strtof(const char *,
-							char **) __attribute__((unavailable));
-long					ft_strtol(const char *, char **,
-							int) __attribute__((unavailable));
-long double				ft_strtold(const char *,
-							char **) __attribute__((unavailable));
-unsigned long			ft_strtoul(const char *, char **,
-							int) __attribute__((unavailable));
-int						ft_unsetenv(const char *) __attribute__((unavailable));
+
+int						ft_abs(int n);
+
+int						ft_atoi(const char *s);
+
+void					*ft_calloc(size_t nmemb, size_t sz);
+div_t					ft_div(int a, int b);
+
 char					*ft_itoa(int n);
 
 char					*ft_substr(char const *s, unsigned int start,

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2025/01/01 20:30:58 by tblochet         ###   ########.fr       */
+/*                                                                            */
+/*   ft_split.c                                           ┌─┐┌┬┐┌┬┐┌─┐        */
+/*                                                        │ │ │  │ │ │        */
+/*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
+/*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
+/*   Created: 2024/11/09 11:01:51 by tblochet             │││├─┤ │ ├─┤        */
+/*   Updated: 2025/01/07 07:22:23 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static char	*ft_strdup_word(char *s, char c)
 	src_len = -1;
 	while ((!(s[++src_len] == c)) && s[src_len])
 		;
-	dest = ft_calloc(src_len + 1,  sizeof(char));
+	dest = ft_calloc(src_len + 1, sizeof(char));
 	if (!dest)
 		return (0);
 	i = -1;
