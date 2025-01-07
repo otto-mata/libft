@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2024/11/09 11:58:24 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/02 02:08:09 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/07 07:18:23 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,9 +105,12 @@ static char	*read_from_fd(int fd, char *res)
 char	*get_next_line(int fd)
 {
 	static char	*buffer[MAX_FD];
+	static int	last_fd = 0;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd == -2)
+		return (free(buffer[last_fd]), (char *) 0);
+	if (fd == -1 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
 		if (fd >= 0)
 		{
@@ -116,6 +119,7 @@ char	*get_next_line(int fd)
 		}
 		return (0);
 	}
+	last_fd = fd;
 	buffer[fd] = read_from_fd(fd, buffer[fd]);
 	if (!buffer[fd])
 		return (0);
