@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2025/01/01 20:26:38 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/06 21:30:48 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/09 05:58:17 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ uint64_t				ft_hashstr(void *area, size_t n);
 t_string				*expstr_new(unsigned long start_sz);
 int						expstr_append(t_string *str, char val);
 void					expstr_destroy(t_string **str);
-
+char					*replace(char *in, char *sub, char *by);
+char					**ft_split(char const *s, char c);
 #endif

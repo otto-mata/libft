@@ -12,5 +12,5 @@ def functions_from_file(file_path:pathlib.Path):
 		if re_match is not None:
 			print(f"{re_match.group()};")
 
-for path in pathlib.Path('/mnt/nfs/homes/tblochet').glob('**/*.c'):
+for path in pathlib.Path('.').glob('**/*.c'):
     functions_from_file(path)

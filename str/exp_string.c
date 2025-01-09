@@ -6,30 +6,11 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2024/11/30 18:17:30 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/07 07:22:16 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/09 05:44:26 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "str.h"
-
-static void	*ft_realloc(void *mem, size_t old_sz, size_t new_sz)
-{
-	void	*nmem;
-	size_t	sz;
-
-	nmem = malloc(new_sz);
-	if (!nmem)
-		return (0);
-	if (!mem)
-		return (nmem);
-	if (new_sz < old_sz)
-		sz = new_sz;
-	else
-		sz = old_sz;
-	while (sz--)
-		((unsigned char *)nmem)[sz] = ((unsigned char *)mem)[sz];
-	return (nmem);
-}
 
 t_string	*expstr_new(unsigned long start_sz)
 {

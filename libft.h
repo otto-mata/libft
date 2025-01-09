@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2024/11/09 11:01:51 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/07 07:25:26 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/09 06:04:31 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <fcntl.h>
 # include <limits.h>
+# include <math.h>
 # include <stddef.h>
 # include <stdint.h>
 # include <stdlib.h>
@@ -24,6 +25,45 @@
 
 typedef struct s_list	t_list;
 typedef struct s_string	t_string;
+typedef struct s_args	t_args;
+typedef					void(t_handler_fn)(void);
+typedef struct s_block	t_block;
+typedef struct s_gc		t_gc;
+typedef struct s_btree	t_btree;
+typedef struct s_vec3	t_vec3;
+typedef t_vec3			t_point3;
+
+struct					s_vec3
+{
+	double				x;
+	double				y;
+	double				z;
+};
+struct					s_btree
+{
+	t_btree				*left;
+	t_btree				*right;
+	void				*item;
+};
+struct					s_block
+{
+	void				*mem;
+	t_block				*next;
+};
+
+struct					s_gc
+{
+	t_block				*blocks;
+};
+struct					s_args
+{
+	int					count;
+	int					error;
+	void				**clean;
+	int					must_clean_args;
+	char				**args;
+	t_handler_fn		**validators;
+};
 struct					s_list
 {
 	void				*content;
@@ -60,18 +100,16 @@ void					ft_putnbr_fd(int n, int fd);
 char					*get_next_line(int fd);
 char					*ft_ltoh(unsigned long n, int upper);
 char					*ft_itoa_unsigned(uint32_t n);
-
 int						ft_printf(char const *fmt, ...);
+int						ft_dprintf(int fd, char const *fmt, ...);
 int						ft_sprintf(char *s, char const *fmt, ...);
+
 void					free2d(void **ptr, int n);
-
 int						ft_abs(int n);
-
 int						ft_atoi(const char *s);
-
 void					*ft_calloc(size_t nmemb, size_t sz);
 div_t					ft_div(int a, int b);
-
+void					*ft_realloc(void *mem, size_t old_sz, size_t new_sz);
 char					*ft_itoa(int n);
 
 char					*ft_substr(char const *s, unsigned int start,
@@ -86,6 +124,7 @@ uint64_t				ft_hashstr(void *area, size_t n);
 t_string				*expstr_new(unsigned long start_sz);
 int						expstr_append(t_string *str, char val);
 void					expstr_destroy(t_string **str);
+char					*replace(char *in, char *sub, char *by);
 
 void					*ft_memccpy(void *dest, const void *src, int c,
 							size_t sz);
@@ -130,4 +169,57 @@ void					ft_lstclear(t_list **lst, void (*del)(void *));
 void					ft_lstadd_front(t_list **lst, t_list *new);
 void					ft_lstadd_back(t_list **lst, t_list *new);
 
+t_block					*gc_addback(t_block *new);
+t_block					*gc_addfront(t_block *new);
+int						gc_nblocks(void);
+void					*gc_calloc(size_t nmemb, size_t sz);
+void					*gc_clear(void);
+void					*gc_delblock(t_block *block);
+t_block					*gc_addr_find(void *addr);
+t_block					*gc_addr_find_prev(void *addr);
+void					gc_free(void *mem);
+t_gc					*gc_instance(void);
+t_block					*gc_last(void);
+void					*gc_malloc(size_t sz);
+t_block					*gc_newblock(void *mem);
+void					*gc_realloc(void *mem, size_t old_sz, size_t new_sz);
+
+void					args_use_argv(char const **argv);
+int						args_validate(void);
+void					args_destroy(void);
+t_args					*args_instance(void);
+int						args_prepare(char const *arg);
+int						args_register_handler(t_handler_fn *fn);
+
+void					btree_apply_prefix(t_btree *root,
+							void (*apply)(void *));
+void					btree_apply_infix(t_btree *root, void (*apply)(void *));
+void					btree_apply_suffix(t_btree *root,
+							void (*apply)(void *));
+t_btree					*btree_create_node(void *item);
+int						btree_level_count(t_btree *root);
+t_btree					*btree_search_node(t_btree *root, void *data_ref,
+							int (*cmpf)(void *, void *));
+void					btree_insert_data(t_btree **root, void *item,
+							int (*cmpf)(void *, void *));
+void					btree_apply_by_level(t_btree *root,
+							void (*applyf)(void *item, int current_level,
+								int is_first_elem));
+
+t_vec3					*vec3_add(t_vec3 *u, t_vec3 *v);
+t_vec3					*vec3_copy(t_vec3 *v);
+t_vec3					*vec3_cross(t_vec3 *u, t_vec3 *v);
+t_vec3					*vec3_div_scalar(t_vec3 *u, double t);
+double					vec3_dot(t_vec3 *u, t_vec3 *v);
+void					vec3_ip_add(t_vec3 *to, t_vec3 *v);
+void					vec3_ip_div(t_vec3 *v, double t);
+void					vec3_ip_mult(t_vec3 *v, double t);
+void					vec3_ip_sub(t_vec3 *to, t_vec3 *v);
+double					vec3_len(t_vec3 *v);
+t_vec3					*vec3_mult(t_vec3 *u, t_vec3 *v);
+t_vec3					*vec3_mult_scalar(t_vec3 *u, double t);
+t_vec3					*vec3_new(double x, double y, double z);
+double					vec3_sqrd_len(t_vec3 *v);
+t_vec3					*vec3_sub(t_vec3 *u, t_vec3 *v);
+t_vec3					*vec3_unit(t_vec3 *v);
 #endif

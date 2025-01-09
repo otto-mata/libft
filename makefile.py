@@ -42,7 +42,8 @@ for key in dirs:
     obj_vars.append(f"{key}_OBJ")
     obj_str += f"{key}_OBJ=$({key}_FULL_PATH:.c=.o)\n"
 
-makefile_head = f"""NAME={TARGET_NAME}
+makefile_head = f"""#This makefile was auto generated, ain't no way I'm writing all that by hand
+NAME={TARGET_NAME}
 CC={COMP}
 CFLAGS={COMP_FLAGS}
 AR={LIB}
