@@ -3,6 +3,7 @@ NAME=libft.a
 CC=cc
 CFLAGS=-Wall -Werror -Wextra -std=c89
 AR=ar rcs
+CWD_SRC_PATH=./
 CTYPE_SRC_PATH=./ctype/
 IO_SRC_PATH=./io/
 LLIST_SRC_PATH=./llist/
@@ -13,6 +14,7 @@ BTREE_SRC_PATH=./btree/
 GC_SRC_PATH=./gc/
 ARGS_SRC_PATH=./args/
 VEC3_SRC_PATH=./vec3/
+CWD_SRC_FILES=main.c
 CTYPE_SRC_FILES=ft_isalnum.c \
 	ft_isalpha.c \
 	ft_isascii.c \
@@ -144,6 +146,7 @@ VEC3_SRC_FILES=vec3_add.c \
 	vec3_sqrd_len.c \
 	vec3_sub.c \
 	vec3_unit.c
+CWD_FULL_PATH=$(addprefix $(CWD_SRC_PATH), $(CWD_SRC_FILES))
 CTYPE_FULL_PATH=$(addprefix $(CTYPE_SRC_PATH), $(CTYPE_SRC_FILES))
 IO_FULL_PATH=$(addprefix $(IO_SRC_PATH), $(IO_SRC_FILES))
 LLIST_FULL_PATH=$(addprefix $(LLIST_SRC_PATH), $(LLIST_SRC_FILES))
@@ -154,6 +157,7 @@ BTREE_FULL_PATH=$(addprefix $(BTREE_SRC_PATH), $(BTREE_SRC_FILES))
 GC_FULL_PATH=$(addprefix $(GC_SRC_PATH), $(GC_SRC_FILES))
 ARGS_FULL_PATH=$(addprefix $(ARGS_SRC_PATH), $(ARGS_SRC_FILES))
 VEC3_FULL_PATH=$(addprefix $(VEC3_SRC_PATH), $(VEC3_SRC_FILES))
+CWD_OBJ=$(CWD_FULL_PATH:.c=.o)
 CTYPE_OBJ=$(CTYPE_FULL_PATH:.c=.o)
 IO_OBJ=$(IO_FULL_PATH:.c=.o)
 LLIST_OBJ=$(LLIST_FULL_PATH:.c=.o)
@@ -165,12 +169,13 @@ GC_OBJ=$(GC_FULL_PATH:.c=.o)
 ARGS_OBJ=$(ARGS_FULL_PATH:.c=.o)
 VEC3_OBJ=$(VEC3_FULL_PATH:.c=.o)
 
-$(NAME): $(CTYPE_OBJ) $(IO_OBJ) $(LLIST_OBJ) $(STDLIB_OBJ) $(STR_OBJ) $(STRING_OBJ) $(BTREE_OBJ) $(GC_OBJ) $(ARGS_OBJ) $(VEC3_OBJ)
+$(NAME): $(CWD_OBJ) $(CTYPE_OBJ) $(IO_OBJ) $(LLIST_OBJ) $(STDLIB_OBJ) $(STR_OBJ) $(STRING_OBJ) $(BTREE_OBJ) $(GC_OBJ) $(ARGS_OBJ) $(VEC3_OBJ)
 	$(AR) $@ $^
 
 all: $(NAME)
 
 clean:
+	rm -f $(CWD_OBJ)
 	rm -f $(CTYPE_OBJ)
 	rm -f $(IO_OBJ)
 	rm -f $(LLIST_OBJ)

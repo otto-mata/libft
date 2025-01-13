@@ -1,0 +1,10 @@
+target="libft.a"
+cc="clang"
+cflags="-Wall -Wextra -Werror"
+cflags_more=[]
+custom_variables=[
+	{ name = "AR", value = "ar rcs" }
+]
+custom_rules=[
+	{ name = "$(NAME)", deps = ""}
+]
