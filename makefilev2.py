@@ -71,7 +71,5 @@ default: all
 
 .PHONY: default all re fclean clean"""
 makefile_content = makefile_head + path_str + files_str + full_path_str + obj_str + rules
-pp(makefile_content)
-
-# with open('Makefile.2', 'w') as file:
-#     file.write(makefile_content)
+with open('Makefile', 'w') as file:
+    file.write(makefile_content)
