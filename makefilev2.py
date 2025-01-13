@@ -11,14 +11,14 @@ dirs = {}
 for file in cwd.glob("**/*.c"):
     path_parts = str(file).split("/")
     file_name = path_parts[-1]
-    path_parts = path_parts[:-1]
-    if (len(path_parts) == 0):
+    trunc_path_parts = path_parts[:-1]
+    if (len(path_parts) == 1):
         var_name = "CWD"
     else:
-        var_name = "_".join([part.upper() for part in path_parts])
+        var_name = "_".join([part.upper() for part in trunc_path_parts])
     if var_name not in dirs.keys():
         dirs[var_name] = dict()
-        dirs[var_name]['path'] = "/".join(path_parts[:-1])
+        dirs[var_name]['path'] = "/".join(trunc_path_parts)
         dirs[var_name]['files'] = []
     path_dict = {'name': file_name, 'relative_path':"/".join(path_parts[1:])}
     dirs[var_name]['files'].append(path_dict)
@@ -32,7 +32,8 @@ obj_vars = []
 
 for key in dirs:
     entry = dirs[key]
-    path_str += f"{key}_SRC_PATH=./{entry['path']}/\n"
+    end_char = '/' if  len(entry['path']) else ''
+    path_str += f"{key}_SRC_PATH=./{entry['path']}{end_char}\n"
     files_str_part = f"{key}_SRC_FILES="
     for i, file in enumerate(entry['files']):
         if i > 0:
