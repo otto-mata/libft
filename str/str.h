@@ -6,12 +6,13 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2025/01/01 20:26:38 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/09 05:58:17 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/25 12:26:35 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STR_H
 # define STR_H
+# include "../gc/gc.h"
 # include "../stdlib/ft_stdlib.h"
 # include "../string/ft_string.h"
 # include <stddef.h>
@@ -89,4 +90,7 @@ int						expstr_append(t_string *str, char val);
 void					expstr_destroy(t_string **str);
 char					*replace(char *in, char *sub, char *by);
 char					**ft_split(char const *s, char c);
+char					*ftgc_strjoin(char const *s1, char const *s2);
+char					*ftgc_substr(char const *s, unsigned int start,
+							size_t len);
 #endif

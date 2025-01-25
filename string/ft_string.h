@@ -6,15 +6,16 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2024/12/31 17:04:32 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/02 03:16:40 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/25 12:21:06 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_STRING_H
 # define FT_STRING_H
+# include "../gc/gc.h"
 # include <stddef.h>
+# include <stdlib.h>
 # include <sys/types.h>
-# include <stdlib.h> 
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t sz);
 void	*ft_memchr(const void *s, int c, size_t n);
@@ -45,5 +46,6 @@ char	*ft_strtok(char *str, const char *delim);
 char	*ft_strtok_r(char *str, const char *delim, char **saveptr);
 void	ft_strrev(char *str);
 void	ft_bzero(void *mem, size_t sz);
+char	*ftgc_strdup(char const *s);
 
 #endif

@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   llist.h                                              ┌─┐┌┬┐┌┬┐┌─┐        */
+/*   gcllist.h                                            ┌─┐┌┬┐┌┬┐┌─┐        */
 /*                                                        │ │ │  │ │ │        */
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2025/01/01 20:19:27 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/25 12:02:50 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/25 12:11:08 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LLIST_H
 # define LLIST_H
 # include "../stdlib/ft_stdlib.h"
+# include "../gc/gc.h"
 
-typedef struct s_gclist	t_list;
+typedef struct s_gclist	t_gclist;
 
 struct					s_gclist
 {
 	void				*content;
-	t_list				*next;
+	t_gclist			*next;
 };
 
 /**
@@ -31,7 +32,7 @@ struct					s_gclist
  * @param del Node deletion function.
  * @return Mapped list as a newly allocated free-able list.
  */
-t_list					*ft_lstmap(t_list *lst, void *(*f)(void *),
+t_gclist				*ftgc_lstmap(t_gclist *lst, void *(*f)(void *),
 							void (*del)(void *));
 
 /**
@@ -39,21 +40,21 @@ t_list					*ft_lstmap(t_list *lst, void *(*f)(void *),
  * @param lst Linked list
  * @return Number of elements in the linked list.
  */
-int						ft_lstsize(t_list *lst);
+int						ftgc_lstsize(t_gclist *lst);
 
 /**
  * @brief Creates a new free-able node with content as value.
  * @param content Content for the node.
  * @return Newly allocated free-able node.
  */
-t_list					*ft_lstnew(void *content);
+t_gclist				*ftgc_lstnew(void *content);
 
 /**
  * @brief Returns a pointer to the last element of a linked list lst
  * @param lst Linked list
  * @return A pointer to the last element of a linked list lst
  */
-t_list					*ft_lstlast(t_list *lst);
+t_gclist				*ftgc_lstlast(t_gclist *lst);
 
 /**
  * @brief Iterates over a linked list lst, applying f() in place to each
@@ -61,34 +62,34 @@ t_list					*ft_lstlast(t_list *lst);
  * @param lst Linked list to iterate over.
  * @param f Function to apply.
  */
-void					ft_lstiter(t_list *lst, void (*f)(void *));
+void					ftgc_lstiter(t_gclist *lst, void (*f)(void *));
 
 /**
  * @brief Deletes and frees a node lst using the given del() function.
  * @param lst Node to delete.
  * @param del Delete function to apply on the content of the node.
  */
-void					ft_lstdelone(t_list *lst, void (*del)(void *));
+void					ftgc_lstdelone(t_gclist *lst, void (*del)(void *));
 
 /**
  * @brief Deletes and frees lst and every subsequent node using del().
  * @param lst Node on which to start the clearing.
  * @param del Delete function to apply on the content of a node.
  */
-void					ft_lstclear(t_list **lst, void (*del)(void *));
+void					ftgc_lstclear(t_gclist **lst, void (*del)(void *));
 
 /**
  * @brief Prepends a node new to a node lst.
  * @param lst Target node.
  * @param new Node to prepend.
  */
-void					ft_lstadd_front(t_list **lst, t_list *new);
+void					ftgc_lstadd_front(t_gclist **lst, t_gclist *new);
 
 /**
  * @brief Appends a node new to a node lst.
  * @param lst Target node.
  * @param new Node to append.
  */
-void					ft_lstadd_back(t_list **lst, t_list *new);
+void					ftgc_lstadd_back(t_gclist **lst, t_gclist *new);
 
 #endif
