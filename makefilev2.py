@@ -22,7 +22,7 @@ class Config:
         self.cflags = config_dict.get("cflags") or ""
         self.cflags_more = config_dict.get("cflags_more") or []
         self.custom_rules = config_dict.get("custom_rules") or []
-        self.custom_variables = config_file.get("custom_variables") or []
+        self.custom_variables = config_dict.get("custom_variables") or []
 
     @property
     def rules(self): ...
@@ -30,7 +30,7 @@ class Config:
     def variables(self):
         out = ""
         for var in self.custom_variables:
-            out.append(f"{var['name']} = {var['value']}")
+            out += f"{var['name']} = {var['value']}"
         return out
 
 config = Config("config.toml")

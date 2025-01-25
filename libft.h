@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2024/11/09 11:01:51 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/09 06:04:31 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/01/25 12:26:49 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <sys/types.h>
 # include <unistd.h>
 
-typedef struct s_list	t_list;
+typedef struct s_gclist	t_list;
 typedef struct s_string	t_string;
 typedef struct s_args	t_args;
 typedef					void(t_handler_fn)(void);
@@ -32,6 +32,7 @@ typedef struct s_gc		t_gc;
 typedef struct s_btree	t_btree;
 typedef struct s_vec3	t_vec3;
 typedef t_vec3			t_point3;
+typedef struct s_gclist	t_gclist;
 
 struct					s_vec3
 {
@@ -64,7 +65,7 @@ struct					s_args
 	char				**args;
 	t_handler_fn		**validators;
 };
-struct					s_list
+struct					s_gclist
 {
 	void				*content;
 	t_list				*next;
@@ -184,6 +185,24 @@ void					*gc_malloc(size_t sz);
 t_block					*gc_newblock(void *mem);
 void					*gc_realloc(void *mem, size_t old_sz, size_t new_sz);
 
+/*
+Linked list implementing the Garbage Collector
+*/
+t_gclist				*ftgc_lstmap(t_gclist *lst, void *(*f)(void *),
+							void (*del)(void *));
+int						ftgc_lstsize(t_gclist *lst);
+t_gclist				*ftgc_lstnew(void *content);
+t_gclist				*ftgc_lstlast(t_gclist *lst);
+void					ftgc_lstiter(t_gclist *lst, void (*f)(void *));
+void					ftgc_lstdelone(t_gclist *lst, void (*del)(void *));
+void					ftgc_lstclear(t_gclist **lst, void (*del)(void *));
+void					ftgc_lstadd_front(t_gclist **lst, t_gclist *new);
+void					ftgc_lstadd_back(t_gclist **lst, t_gclist *new);
+
+char					*ftgc_strdup(char const *s);
+char					*ftgc_strjoin(char const *s1, char const *s2);
+char					*ftgc_substr(char const *s, unsigned int start,
+							size_t len);
 void					args_use_argv(char const **argv);
 int						args_validate(void);
 void					args_destroy(void);
@@ -222,4 +241,5 @@ t_vec3					*vec3_new(double x, double y, double z);
 double					vec3_sqrd_len(t_vec3 *v);
 t_vec3					*vec3_sub(t_vec3 *u, t_vec3 *v);
 t_vec3					*vec3_unit(t_vec3 *v);
+
 #endif
