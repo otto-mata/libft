@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2024/11/09 11:01:51 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/02/15 13:03:20 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/02/15 13:29:18 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define FNV_OFFSET 14695981039346656037UL
 # define FNV_PRIME 1099511628211UL
 
-typedef struct s_gclist		t_list;
+typedef struct s_list		t_list;
 typedef struct s_string		t_string;
 typedef struct s_args		t_args;
 typedef						void(t_handler_fn)(void);
@@ -36,7 +36,7 @@ typedef struct s_gc			t_gc;
 typedef struct s_btree		t_btree;
 typedef struct s_vec3		t_vec3;
 typedef t_vec3				t_point3;
-typedef struct s_gclist		t_gclist;
+typedef struct s_list		t_gclist;
 typedef struct s_oht_entry	t_oht_entry;
 typedef struct s_oht		t_oht;
 

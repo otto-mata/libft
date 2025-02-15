@@ -1,7 +1,7 @@
 #This makefile was auto generated, ain't no way I'm writing all that by hand
 NAME=libft.a
 CC=cc
-CFLAGS=-Wall -Werror -Wextra -std=c89
+CFLAGS=-Wall -Werror -Wextra -std=c89 -O3
 AR=ar rcs
 CTYPE_SRC_PATH=./ctype/
 IO_SRC_PATH=./io/

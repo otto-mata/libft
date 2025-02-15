@@ -6,14 +6,14 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2025/01/29 06:26:58 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/02/15 12:59:31 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/02/15 14:15:09 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OHT_H
 # define OHT_H
-# define OHT_CAPACITY 32
-# define OHT_KEY_LENGTH 33
+# define OHT_CAPACITY 256
+# define OHT_KEY_LENGTH 97
 # define FNV_OFFSET 14695981039346656037UL
 # define FNV_PRIME 1099511628211UL
 # include "../stdlib/ft_stdlib.h"
