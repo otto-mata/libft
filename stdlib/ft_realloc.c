@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2025/01/09 05:39:29 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/09 05:40:06 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/02/15 12:59:53 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_realloc(void *mem, size_t old_sz, size_t new_sz)
 		return (nmem);
 	if (new_sz < old_sz)
 		sz = new_sz;
-	else 
+	else
 		sz = old_sz;
 	while (sz--)
 		((unsigned char *)nmem)[sz] = ((unsigned char *)mem)[sz];

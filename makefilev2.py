@@ -23,7 +23,7 @@ class Config:
         self.cflags_more = config_dict.get("cflags_more") or []
         self.custom_rules = config_dict.get("custom_rules") or []
         self.custom_variables = config_dict.get("custom_variables") or []
-
+        self.target_rule = config_dict.get("target_rule") or ""
     @property
     def rules(self): ...
     @property

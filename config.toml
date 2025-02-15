@@ -2,6 +2,7 @@ target="libft.a"
 cc="clang"
 cflags="-Wall -Wextra -Werror"
 cflags_more=[]
+target_rule = ""
 custom_variables=[
 	{ name = "AR", value = "ar rcs" }
 ]
