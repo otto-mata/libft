@@ -6,14 +6,14 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2025/01/01 20:19:27 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/25 12:11:08 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/03/03 08:25:07 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LLIST_H
-# define LLIST_H
-# include "../stdlib/ft_stdlib.h"
+#ifndef GCLLIST_H
+# define GCLLIST_H
 # include "../gc/gc.h"
+# include "../stdlib/ft_stdlib.h"
 
 typedef struct s_gclist	t_gclist;
 

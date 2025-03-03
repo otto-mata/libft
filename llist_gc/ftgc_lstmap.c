@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ftgc_lstmap.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 14:45:58 by tblochet          #+#    #+#             */
-/*   Updated: 2025/01/01 20:19:15 by tblochet         ###   ########.fr       */
+/*                                                                            */
+/*   ftgc_lstmap.c                                        ┌─┐┌┬┐┌┬┐┌─┐        */
+/*                                                        │ │ │  │ │ │        */
+/*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
+/*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
+/*   Created: 2024/11/12 14:45:58 by tblochet             │││├─┤ │ ├─┤        */
+/*   Updated: 2025/03/03 08:24:39 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_gclist	*ftgc_lstmap(t_gclist *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_gclist	*map;
 	t_gclist	*iter;
-	void	*new_content;
+	void		*new_content;
 
 	map = 0;
 	if (!lst || !f || !del)
