@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2024/12/31 17:13:42 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/07 07:22:01 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/03/06 13:53:49 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memccpy(void *d, const void *s, int c, size_t n)
 	unsigned char		*dest;
 
 	src = s;
+	if (!d || !s)
+		return (0);
 	if (!d && !s)
 		return (d);
 	dest = d;

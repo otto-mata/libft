@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2024/12/31 17:38:49 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/02 03:17:58 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/03/06 13:58:19 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ size_t	ft_strcspn(const char *s, const char *reject)
 	const char	*src = s;
 	size_t		count;
 
+	if (!s)
+		return (0);
+	if (!reject)
+		return (ft_strlen(s));
 	count = 0;
 	while (*src)
 	{

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2025/01/01 19:27:08 by tblochet         ###   ########.fr       */
+/*                                                                            */
+/*   ft_strndup.c                                         ┌─┐┌┬┐┌┬┐┌─┐        */
+/*                                                        │ │ │  │ │ │        */
+/*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
+/*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
+/*   Created: 2024/11/09 11:01:51 by tblochet             │││├─┤ │ ├─┤        */
+/*   Updated: 2025/03/06 14:00:22 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,12 @@ static size_t	ft_min(size_t a, size_t b)
 
 char	*ft_strndup(char const *s, size_t n)
 {
-	size_t const	len = ft_min(ft_strlen(s), n) + 1;
-	char			*new;
+	size_t	len;
+	char	*new;
 
+	if (!s)
+		return (0);
+	len = ft_min(ft_strlen(s), n) + 1;
 	new = malloc(len * sizeof(char));
 	if (!new)
 		return (0);
