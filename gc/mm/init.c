@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   gc_realloc.c                                         ┌─┐┌┬┐┌┬┐┌─┐        */
+/*   init.c                                               ┌─┐┌┬┐┌┬┐┌─┐        */
 /*                                                        │ │ │  │ │ │        */
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
-/*   Created: 2024/11/18 15:31:43 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/09 05:51:56 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Created: 2025/03/09 00:03:16 by ottomata             │││├─┤ │ ├─┤        */
+/*   Updated: 2025/03/11 14:26:32 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "gc.h"
+#include "mem_manager.h"
 
-void	*gc_realloc(void *mem, size_t old_sz, size_t new_sz)
+static t_mm	__initialize_memory_manager(void)
 {
-	t_block		*block;
-	void		*nmem;
-	size_t		sz;
+	t_mm	manager;
 
-	nmem = gc_malloc(new_sz);
-	if (!nmem)
-		return (0);
-	if (!mem)
-		return (nmem);
-	block = gc_addr_find(mem);
-	if (!block)
-		return (0);
-	sz = otto_min(new_sz, old_sz);
-	while (sz--)
-		((unsigned char *)nmem)[sz] = ((unsigned char *)mem)[sz];
-	gc_delblock(block);
-	return (nmem);
+	manager.free = &mm_free;
+	manager.malloc = &mm_malloc;
+	manager.realloc = &mm_realloc;
+	manager.pnodes = 0;
+	return (manager);
+}
+
+t_mm	*memory_manager(void)
+{
+	static t_mm	manager = {0};
+	static int	init = 0;
+
+	if (!init)
+	{
+		init = 1;
+		manager = __initialize_memory_manager();
+	}
+	return (&manager);
 }

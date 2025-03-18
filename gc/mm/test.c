@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   gc_delblock.c                                        ┌─┐┌┬┐┌┬┐┌─┐        */
+/*   test.c                                               ┌─┐┌┬┐┌┬┐┌─┐        */
 /*                                                        │ │ │  │ │ │        */
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
-/*   Created: 2024/11/12 14:39:01 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/09 05:51:56 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Created: 2025/03/09 01:36:05 by ottomata             │││├─┤ │ ├─┤        */
+/*   Updated: 2025/03/11 14:26:53 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "gc.h"
+#include "mem_manager.h"
 
-void	*gc_delblock(t_block *block)
+int	main(void)
 {
-	t_gc *const	gc = gc_instance();
-	t_block		*prev;
+	char	*s;
 
-	if (!gc || !block)
-		return (0);
-	prev = gc_addr_find_prev(block->mem);
-	if (!prev)
-		gc->blocks = block->next;
-	else
-		prev->next = block->next;
-	free(block->mem);
-	block->mem = 0;
-	free(block);
-	return (0);
+	s = mm_malloc(200);
+	s = mm_realloc(s, 2);
+	s[0] = 'o';
+	mm_destroy();
 }

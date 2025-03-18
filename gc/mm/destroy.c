@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   gc_calloc.c                                          ┌─┐┌┬┐┌┬┐┌─┐        */
+/*   destroy.c                                            ┌─┐┌┬┐┌┬┐┌─┐        */
 /*                                                        │ │ │  │ │ │        */
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
-/*   Created: 2024/11/18 15:31:29 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/09 05:51:56 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Created: 2025/03/09 01:23:28 by ottomata             │││├─┤ │ ├─┤        */
+/*   Updated: 2025/03/11 14:26:40 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "gc.h"
+#include "mem_manager.h"
 
-void	*gc_calloc(size_t nmemb, size_t sz)
+void	mm_destroy(void)
 {
-	void	*mem;
+	t_mpn	*node;
+	t_mpn	*next;
+	size_t	idx;
 
-	if (nmemb > 0 && sz > SIZE_MAX / nmemb)
-		return (NULL);
-	mem = gc_malloc(nmemb * sz);
-	if (mem)
-		otto_bzero(mem, nmemb * sz);
-	return (mem);
+	node = memory_manager()->pnodes;
+	while (node)
+	{
+		idx = 0;
+		while (idx < node->len)
+		{
+			if (node->pages[idx].mem)
+			{
+				free(node->pages[idx].mem);
+				node->pages[idx].sz = 0;
+				node->pages[idx].mem = 0;
+			}
+			idx++;
+		}
+		next = node->fwd;
+		free(node);
+		node = next;
+	}
 }

@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   gc_last.c                                            ┌─┐┌┬┐┌┬┐┌─┐        */
+/*   free.c                                               ┌─┐┌┬┐┌┬┐┌─┐        */
 /*                                                        │ │ │  │ │ │        */
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
-/*   Created: 2024/11/12 14:33:48 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/01/09 05:51:56 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Created: 2025/03/09 00:08:16 by ottomata             │││├─┤ │ ├─┤        */
+/*   Updated: 2025/03/11 14:26:34 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "gc.h"
+#include "mem_manager.h"
 
-t_block	*gc_last(void)
+void	mm_free(void *p)
 {
-	t_gc	*gc;
-	t_block	*block;
+	t_mpc	*infop;
 
-	gc = gc_instance();
-	if (!gc)
-		return (0);
-	block = gc->blocks;
-	while (block && block->next)
-		block = block->next;
-	return (block);
+	if (!p)
+		return ;
+	infop = p - sizeof(t_mpc);
+	infop->x = 0;
 }
