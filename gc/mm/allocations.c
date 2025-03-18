@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2025/03/09 00:27:31 by ottomata             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/03/11 14:26:43 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/03/18 11:40:34 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	*mm_realloc(void *p, size_t sz)
 		errno = ENOMEM;
 		return (0);
 	}
-	rounded_size = pow_2_up_to_exp(sz, PAGE_ALIGN);
+	rounded_size = align_to_2exp(sz, PAGE_ALIGN);
 	if (p && !rounded_size)
 	{
 		mm_free(p);

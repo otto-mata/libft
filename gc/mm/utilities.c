@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   utilities.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ottomata <ottomata@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/09 00:34:09 by ottomata          #+#    #+#             */
-/*   Updated: 2025/03/09 01:35:32 by ottomata         ###   ########.fr       */
+/*                                                                            */
+/*   utilities.c                                          ┌─┐┌┬┐┌┬┐┌─┐        */
+/*                                                        │ │ │  │ │ │        */
+/*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
+/*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
+/*   Created: 2025/03/09 00:34:09 by ottomata             │││├─┤ │ ├─┤        */
+/*   Updated: 2025/03/18 11:40:34 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mem_manager.h"
 
-size_t	pow_2_up_to_exp(size_t n, size_t exponent)
+size_t	align_to_2exp(size_t n, size_t exponent)
 {
 	const size_t	power_of_2 = (1 << exponent) - 1;
 
