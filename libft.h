@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>                └─┘ ┴  ┴ └─┘        */
 /*                                                        ┌┬┐┌─┐┌┬┐┌─┐        */
 /*   Created: 2024/11/09 11:01:51 by tblochet             │││├─┤ │ ├─┤        */
-/*   Updated: 2025/02/15 13:29:18 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
+/*   Updated: 2025/03/06 14:23:34 by tblochet             ┴ ┴┴ ┴ ┴ ┴ ┴        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -274,3 +274,4 @@ double						vec3_sqrd_len(t_vec3 *v);
 t_vec3						*vec3_sub(t_vec3 *u, t_vec3 *v);
 t_vec3						*vec3_unit(t_vec3 *v);
 #endif
+int (*get_builtin(t_list	*lst))(t_list *, t_list **);

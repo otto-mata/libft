@@ -1,7 +1,7 @@
 #This makefile was auto generated, ain't no way I'm writing all that by hand
 NAME=libft.a
 CC=cc
-CFLAGS=-Wall -Werror -Wextra -std=c89 -O3
+CFLAGS=-Wall -Werror -Wextra -std=c89
 AR=ar rcs
 CTYPE_SRC_PATH=./ctype/
 IO_SRC_PATH=./io/
@@ -16,6 +16,8 @@ VEC3_SRC_PATH=./vec3/
 OHT_SRC_PATH=./oht/
 CSTM_SRC_PATH=./cstm/
 LLIST_GC_SRC_PATH=./llist_gc/
+VECARR_SRC_PATH=./vecarr/
+GC_VECARR_SRC_PATH=./gc_vecarr/
 CTYPE_SRC_FILES=ft_isalnum.c \
 	ft_isalpha.c \
 	ft_isascii.c \
@@ -71,35 +73,35 @@ STR_SRC_FILES=exp_string.c \
 	replace.c \
 	ft_strjoin.c \
 	ft_substr.c
-STRING_SRC_FILES=ft_bzero.c \
-	ft_memccpy.c \
-	ft_memchr.c \
-	ft_memcmp.c \
-	ft_memcpy.c \
-	ft_memmove.c \
-	ft_memset.c \
-	ft_stpcpy.c \
-	ft_stpncpy.c \
-	ft_strchr.c \
-	ft_strcmp.c \
+STRING_SRC_FILES=ft_memmove.c \
 	ft_strcoll.c \
+	ft_memchr.c \
+	ft_memset.c \
+	ft_strcat.c \
 	ft_strcpy.c \
-	ft_strcspn.c \
 	ft_strlen.c \
-	ft_strncat.c \
-	ft_strncmp.c \
-	ft_strncpy.c \
-	ft_strndup.c \
-	ft_strnlen.c \
-	ft_strpbrk.c \
-	ft_strrchr.c \
 	ft_strrev.c \
-	ft_strspn.c \
 	ft_strstr.c \
 	ft_strtok.c \
 	ft_strtok_r.c \
-	ft_strdup.c \
-	ft_strcat.c
+	ft_strncat.c \
+	ft_strndup.c \
+	ft_strpbrk.c \
+	ft_strspn.c \
+	ft_memccpy.c \
+	ft_memcmp.c \
+	ft_stpcpy.c \
+	ft_strchr.c \
+	ft_strcspn.c \
+	ft_strncmp.c \
+	ft_strncpy.c \
+	ft_strnlen.c \
+	ft_strrchr.c \
+	ft_bzero.c \
+	ft_memcpy.c \
+	ft_stpncpy.c \
+	ft_strcmp.c \
+	ft_strdup.c
 BTREE_SRC_FILES=btree_apply_prefix.c \
 	btree_insert_data.c \
 	btree_apply_infix.c \
@@ -159,6 +161,38 @@ LLIST_GC_SRC_FILES=ftgc_lstadd_back.c \
 	ftgc_lstmap.c \
 	ftgc_lstnew.c \
 	ftgc_lstsize.c
+VECARR_SRC_FILES=all.c \
+	delete.c \
+	destroy.c \
+	filter.c \
+	find.c \
+	init.c \
+	join.c \
+	map.c \
+	mem_utils.c \
+	pop.c \
+	push.c \
+	reverse.c \
+	slice.c \
+	some.c \
+	string_utils.c \
+	sum.c
+GC_VECARR_SRC_FILES=all.c \
+	delete.c \
+	destroy.c \
+	filter.c \
+	find.c \
+	init.c \
+	join.c \
+	map.c \
+	mem_utils.c \
+	pop.c \
+	push.c \
+	reverse.c \
+	slice.c \
+	some.c \
+	string_utils.c \
+	sum.c
 CTYPE_FULL_PATH=$(addprefix $(CTYPE_SRC_PATH), $(CTYPE_SRC_FILES))
 IO_FULL_PATH=$(addprefix $(IO_SRC_PATH), $(IO_SRC_FILES))
 LLIST_FULL_PATH=$(addprefix $(LLIST_SRC_PATH), $(LLIST_SRC_FILES))
@@ -172,6 +206,8 @@ VEC3_FULL_PATH=$(addprefix $(VEC3_SRC_PATH), $(VEC3_SRC_FILES))
 OHT_FULL_PATH=$(addprefix $(OHT_SRC_PATH), $(OHT_SRC_FILES))
 CSTM_FULL_PATH=$(addprefix $(CSTM_SRC_PATH), $(CSTM_SRC_FILES))
 LLIST_GC_FULL_PATH=$(addprefix $(LLIST_GC_SRC_PATH), $(LLIST_GC_SRC_FILES))
+VECARR_FULL_PATH=$(addprefix $(VECARR_SRC_PATH), $(VECARR_SRC_FILES))
+GC_VECARR_FULL_PATH=$(addprefix $(GC_VECARR_SRC_PATH), $(GC_VECARR_SRC_FILES))
 CTYPE_OBJ=$(CTYPE_FULL_PATH:.c=.o)
 IO_OBJ=$(IO_FULL_PATH:.c=.o)
 LLIST_OBJ=$(LLIST_FULL_PATH:.c=.o)
@@ -185,8 +221,10 @@ VEC3_OBJ=$(VEC3_FULL_PATH:.c=.o)
 OHT_OBJ=$(OHT_FULL_PATH:.c=.o)
 CSTM_OBJ=$(CSTM_FULL_PATH:.c=.o)
 LLIST_GC_OBJ=$(LLIST_GC_FULL_PATH:.c=.o)
+VECARR_OBJ=$(VECARR_FULL_PATH:.c=.o)
+GC_VECARR_OBJ=$(GC_VECARR_FULL_PATH:.c=.o)
 
-$(NAME): $(CTYPE_OBJ) $(IO_OBJ) $(LLIST_OBJ) $(STDLIB_OBJ) $(STR_OBJ) $(STRING_OBJ) $(BTREE_OBJ) $(GC_OBJ) $(ARGS_OBJ) $(VEC3_OBJ) $(OHT_OBJ) $(CSTM_OBJ) $(LLIST_GC_OBJ)
+$(NAME): $(CTYPE_OBJ) $(IO_OBJ) $(LLIST_OBJ) $(STDLIB_OBJ) $(STR_OBJ) $(STRING_OBJ) $(BTREE_OBJ) $(GC_OBJ) $(ARGS_OBJ) $(VEC3_OBJ) $(OHT_OBJ) $(CSTM_OBJ) $(LLIST_GC_OBJ) $(VECARR_OBJ) $(GC_VECARR_OBJ)
 	$(AR) $@ $^
 
 all: $(NAME)
@@ -205,6 +243,8 @@ clean:
 	rm -f $(OHT_OBJ)
 	rm -f $(CSTM_OBJ)
 	rm -f $(LLIST_GC_OBJ)
+	rm -f $(VECARR_OBJ)
+	rm -f $(GC_VECARR_OBJ)
 
 fclean: clean
 	rm -f $(NAME)
